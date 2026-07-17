@@ -82,6 +82,34 @@ The experiment runner picks the dataset from `data.dataset` in the config
 (`ham10000`, `isic2020`, `isic_dicm_17k`) and writes per-dataset result JSONs so
 runs never overwrite each other.
 
+## Reproducing / regenerating the LLM-realistic notes
+
+One optional experiment tests whether the text shortcut also appears with
+realistic, LLM-written clinical prose (not just templates). To make this
+reproducible without anyone needing an API key, the generated note pool is
+shipped in `data/llm_notes_cache/`.
+
+- **Offline reproduction (no API key needed):** run the `*_llm.yaml` config with
+  `llm_model` left empty. The pipeline reuses the shipped note pool from
+  `data/llm_notes_cache/`, so no network call is made.
+
+  ```bash
+  python scripts/run_shortcut.py --config configs/shortcut_ham10000_llm.yaml --mode bakeoff
+  ```
+
+- **Regenerating notes (e.g. for a different dataset): bring your own API key.**
+  Set your own key and model, then generate. The pool is cached to disk, so the
+  later training run reuses it.
+
+  ```bash
+  export ANTHROPIC_API_KEY=your-own-key        # your account, never committed
+  export LLM_MODEL=your-provider-model-id
+  python scripts/generate_llm_notes.py --dataset ham10000 --seeds 42 --provider anthropic
+  ```
+
+  The API key is read only from the `ANTHROPIC_API_KEY` environment variable and
+  is never written to any file in this repo. Do not commit keys.
+
 ## Tests
 
 Offline unit tests (no GPU, dataset, or model download needed):

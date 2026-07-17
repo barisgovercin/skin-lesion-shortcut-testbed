@@ -8,8 +8,12 @@ data:
   text_filter_level: DFilt      # keep leading present; leakage_p controls reliability
   text_max_length: 128
   text_source: llm              # LLM-generated realistic notes (vs the 'template' engine)
-  llm_provider: anthropic       # 'anthropic' needs ANTHROPIC_API_KEY; 'mock' for an offline dry run
-  llm_model: ""   # set your LLM provider model id, or export LLM_MODEL
+  # Offline repro: leave llm_model empty -> reuses the shipped note pool in
+  # data/llm_notes_cache/ (no API key, no network). To generate fresh notes for a
+  # NEW dataset, set your OWN model id here (or export LLM_MODEL) and provide your
+  # OWN ANTHROPIC_API_KEY. See README "Reproducing / regenerating the LLM notes".
+  llm_provider: anthropic
+  llm_model: ""
 model:
   backbone: convnext_base
   pretrained: true
