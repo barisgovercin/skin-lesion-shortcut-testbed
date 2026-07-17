@@ -170,6 +170,7 @@ def main():
               f"Brier temp {cell['temperature']['brier'][0]:.4f} / platt {cell['platt']['brier'][0]:.4f}; "
               f"NB@0.10 margin CI {nb[0.10]['diff_ci']}")
 
+    Path("results/reports").mkdir(parents=True, exist_ok=True)
     Path("results/reports/clinical_stats.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     json.dump(out_json, open("results/clinical_stats.json", "w"), indent=2)
     print("Saved results/reports/clinical_stats.md and results/clinical_stats.json")

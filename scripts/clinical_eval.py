@@ -209,6 +209,7 @@ def main():
         print(f"Saved figure + json for {ds}")
 
     out = Path("results/reports/clinical_eval.md")
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(md) + "\n", encoding="utf-8")
     print(f"Saved {out}")
 

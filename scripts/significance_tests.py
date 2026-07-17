@@ -137,6 +137,7 @@ def main() -> None:
             dose_block(name, path, lines)
 
     text = "\n".join(lines) + "\n"
+    OUT_MD.parent.mkdir(parents=True, exist_ok=True)
     OUT_MD.write_text(text, encoding="utf-8")
     print(text)
     print(f"\n[WROTE] {OUT_MD}")
