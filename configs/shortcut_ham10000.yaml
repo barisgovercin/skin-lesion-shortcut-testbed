@@ -1,0 +1,20 @@
+experiment: {name: shortcut_ham10000, seed: 42}
+data:
+  dataset: ham10000
+  data_dir: data/raw/ham10000
+  img_size: 224
+  batch_size: 16
+  num_workers: 4
+  text_filter_level: DFilt      # keep leading present; leakage_p controls reliability
+  text_max_length: 128
+model:
+  backbone: convnext_base
+  pretrained: true
+  text_model: emilyalsentzer/Bio_ClinicalBERT
+  text_freeze: false
+training: {epochs: 5, lr: 1.0e-5, weight_decay: 0.01}
+shortcut:
+  leakage_ps: [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  methods: [naive, ffilt_only, counterfactual_aug, consistency, adversarial]
+  consistency_lambda: 1.0
+  adversarial_lambda: 1.0

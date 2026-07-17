@@ -1,0 +1,23 @@
+experiment: {name: smoke_shortcut_llm, seed: 42}
+data:
+  dataset: ham10000
+  data_dir: data/raw/ham10000
+  img_size: 224
+  batch_size: 16
+  num_workers: 4
+  text_filter_level: DFilt
+  text_max_length: 128
+  text_source: llm
+  llm_provider: anthropic       # pools already cached -> no API key needed at train time
+  llm_model: ""   # set your LLM provider model id, or export LLM_MODEL
+model:
+  backbone: convnext_base
+  pretrained: true
+  text_model: emilyalsentzer/Bio_ClinicalBERT
+  text_freeze: false
+training: {epochs: 1, lr: 1.0e-5, weight_decay: 0.01}
+shortcut:
+  leakage_ps: [1.0]
+  methods: [naive, counterfactual_aug]
+  consistency_lambda: 1.0
+  adversarial_lambda: 1.0

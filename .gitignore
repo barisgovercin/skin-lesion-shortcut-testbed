@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Office lock/temp files
+~$*
+
+# Data - large files tracked separately
+data/raw/
+data/processed/
+*.h5
+*.hdf5
+*.tar.gz
+*.zip
+
+# Model checkpoints & outputs
+models/checkpoints/
+models/saved/
+*.pt
+*.pth
+*.ckpt
+wandb/
+runs/
+logs/
+
+# Secrets
+.env
+*.key
+
+# LaTeX build artifacts
+*.aux
+*.out
+*.synctex.gz
+results/reports/*.log
+
+# Intermediate inference caches (regenerable; the figures they produce are committed)
+results/predictions_*.json
+results/clinical_logits_*.json
+
+# LLM notes cache: keep the real generated pool, drop the mock test artifact
+data/llm_notes_cache/mock_*
+
+# Local data / Kaggle setup, kept out of version control (secret risk)
+/DATA_SETUP.md
+/setup.bat
+scripts/download_data.py
+scripts/setup_kaggle.py
+.gstack/

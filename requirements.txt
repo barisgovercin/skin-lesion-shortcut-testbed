@@ -1,0 +1,32 @@
+# Core ML — PyTorch with CUDA 12.8 is installed separately (see setup.bat)
+torchvision
+torchaudio
+
+# Data & ML
+scikit-learn>=1.3
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+Pillow>=10.0
+
+# NLP
+transformers>=4.40
+tokenizers>=0.19
+
+# Explainability (Integrated Gradients modality attribution)
+captum>=0.7
+
+# Config & I/O
+pyyaml>=6.0
+
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+
+# Kaggle data download
+kaggle>=1.6
+
+# Dev / testing
+pytest>=8.0
+black>=24.0
+isort>=5.13

@@ -1,0 +1,25 @@
+experiment:
+  name: multimodal_text_ham10000
+  seed: 42
+
+data:
+  dataset: ham10000
+  data_dir: data/raw/ham10000
+  img_size: 224
+  batch_size: 16          # vision backbone + BioClinicalBERT together; lower if VRAM-bound
+  num_workers: 4
+  # Leading-language ablation level: Orig | CFilt | DFilt | FFilt
+  text_filter_level: Orig
+  text_max_length: 128
+
+model:
+  backbone: convnext_base
+  pretrained: true
+  text_model: emilyalsentzer/Bio_ClinicalBERT
+  text_freeze: false      # set true to freeze BERT and train only vision + head
+
+training:
+  epochs: 5
+  lr: 1.0e-5
+  weight_decay: 0.01
+  save_dir: models/checkpoints/text_ham10000

@@ -1,0 +1,20 @@
+experiment:
+  name: baseline_vision_ham10000
+  seed: 42
+
+data:
+  dataset: ham10000
+  data_dir: data/raw/ham10000
+  img_size: 224
+  batch_size: 32
+  num_workers: 4
+
+model:
+  backbone: convnext_base  # start with base (smaller), scale to large later
+  pretrained: true
+
+training:
+  epochs: 5
+  lr: 1.0e-5
+  weight_decay: 0.01
+  save_dir: models/checkpoints/baseline_ham10000

@@ -1,0 +1,24 @@
+experiment:
+  name: multimodal_text_ham10000_DFilt
+  seed: 42
+
+data:
+  dataset: ham10000
+  data_dir: data/raw/ham10000
+  img_size: 224
+  batch_size: 16
+  num_workers: 4
+  text_filter_level: DFilt   # CFilt + remove the words 'benign'/'malignant'
+  text_max_length: 128
+
+model:
+  backbone: convnext_base
+  pretrained: true
+  text_model: emilyalsentzer/Bio_ClinicalBERT
+  text_freeze: false
+
+training:
+  epochs: 5
+  lr: 1.0e-5
+  weight_decay: 0.01
+  save_dir: models/checkpoints/text_ham10000

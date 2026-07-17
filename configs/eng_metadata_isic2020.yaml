@@ -1,0 +1,22 @@
+experiment:
+  name: eng_metadata_isic2020
+  seed: 42
+
+data:
+  dataset: isic2020
+  data_dir: data/raw/isic2020
+  img_size: 224
+  batch_size: 32
+  num_workers: 4
+  engineered_metadata: true   # clinical FE (recovers dropped torso/site categories)
+  patient_aggregates: true    # images_per_patient — the one metadata lever that helps on ISIC (+~0.06 AUROC, diagnostic)
+
+model:
+  backbone: convnext_base
+  pretrained: true
+
+training:
+  epochs: 5
+  lr: 1.0e-5
+  weight_decay: 0.01
+  save_dir: models/checkpoints/eng_metadata_isic2020

@@ -1,0 +1,20 @@
+experiment:
+  name: baseline_vision_isic_dicm_17k
+  seed: 42
+
+data:
+  dataset: isic_dicm_17k
+  data_dir: data/raw/isic_dicm_17k
+  img_size: 224
+  batch_size: 32
+  num_workers: 4
+
+model:
+  backbone: convnext_base
+  pretrained: true
+
+training:
+  epochs: 5
+  lr: 1.0e-5
+  weight_decay: 0.01
+  save_dir: models/checkpoints/isic_dicm_17k
