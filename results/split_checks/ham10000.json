@@ -1,0 +1,143 @@
+{
+  "dataset": "ham10000",
+  "seeds": {
+    "42": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 5988,
+          "val": 1985,
+          "test": 2042
+        },
+        "malignant": {
+          "train": 0.19472277889111556,
+          "val": 0.19395465994962216,
+          "test": 0.19735553379040158
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 14378,
+          "0.95": 106,
+          "0.98": 0,
+          "0.99": 0
+        }
+      }
+    },
+    "123": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 6023,
+          "val": 1979,
+          "test": 2013
+        },
+        "malignant": {
+          "train": 0.19475344512701312,
+          "val": 0.19909044972208187,
+          "test": 0.19225037257824143
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 14053,
+          "0.95": 98,
+          "0.98": 0,
+          "0.99": 0
+        }
+      }
+    },
+    "456": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 5995,
+          "val": 2003,
+          "test": 2017
+        },
+        "malignant": {
+          "train": 0.19466221851542953,
+          "val": 0.19221168247628556,
+          "test": 0.19930589985126426
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 14493,
+          "0.95": 118,
+          "0.98": 0,
+          "0.99": 0
+        }
+      }
+    },
+    "789": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 5954,
+          "val": 2002,
+          "test": 2059
+        },
+        "malignant": {
+          "train": 0.19499496137050723,
+          "val": 0.1983016983016983,
+          "test": 0.192326372025255
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 13756,
+          "0.95": 105,
+          "0.98": 0,
+          "0.99": 0
+        }
+      }
+    },
+    "1024": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 6044,
+          "val": 1971,
+          "test": 2000
+        },
+        "malignant": {
+          "train": 0.19374586366644606,
+          "val": 0.19837645865043124,
+          "test": 0.196
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 14132,
+          "0.95": 95,
+          "0.98": 0,
+          "0.99": 0
+        }
+      }
+    }
+  },
+  "images": {
+    "n_images": 10015,
+    "exact_duplicate_pairs": 2,
+    "near_threshold": 0.9,
+    "near_duplicate_pairs": 26384,
+    "near_pairs_same_group": 1152,
+    "cross_split_candidates_any_seed": 24817
+  }
+}

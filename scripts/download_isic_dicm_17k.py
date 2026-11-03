@@ -9,10 +9,12 @@ here by their deterministic URL:
     https://isic-archive.s3.amazonaws.com/images/{isic_id}.jpg
 
 Images are the curated/resized ISIC-DICM versions (~30-80 KB each, ~1 GB total),
-so no resize step is needed — the training pipeline resizes to 224 anyway.
+so no resize step is needed; the training pipeline resizes to 224 anyway.
 
 Usage:
-    python scripts/download_isic_dicm_17k.py                 # download all 17,060
+    python scripts/download_isic_dicm_17k.py                 # metadata + all 17,060 images
+    python scripts/download_isic_dicm_17k.py --metadata-only # the two CSVs only (enough
+                                                             # to rebuild/verify the splits)
     python scripts/download_isic_dicm_17k.py --workers 24
     python scripts/download_isic_dicm_17k.py --limit 50      # smoke test
 """
@@ -30,12 +32,28 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "raw" / "isic_dicm_17k"
 IMG_DIR = DATA_DIR / "images"
 S3_URL = "https://isic-archive.s3.amazonaws.com/images/{isic_id}.jpg"
+CSV_URL = ("https://raw.githubusercontent.com/mmu-dermatology-research/isic-dicm-17k/"
+           "main/{name}")
+CSV_NAMES = ("train-set-metadata.csv", "valid-set-metadata.csv")
+
+
+def fetch_metadata() -> None:
+    """Download the two released metadata CSVs from the dataset's GitHub repo if missing."""
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    for name in CSV_NAMES:
+        dest = DATA_DIR / name
+        if dest.exists() and dest.stat().st_size > 0:
+            continue
+        r = requests.get(CSV_URL.format(name=name), timeout=60)
+        r.raise_for_status()
+        dest.write_bytes(r.content)
+        print(f"[ISIC-DICM-17K] fetched {name} ({len(r.content) // 1024} KB)", flush=True)
 
 
 def load_ids() -> list[str]:
     """Union of isic_ids across the train and valid metadata CSVs."""
     ids: set[str] = set()
-    for name in ("train-set-metadata.csv", "valid-set-metadata.csv"):
+    for name in CSV_NAMES:
         df = pd.read_csv(DATA_DIR / name)
         ids.update(df["isic_id"].dropna().astype(str).tolist())
     return sorted(ids)
@@ -62,11 +80,19 @@ def download_one(isic_id: str, session: requests.Session, retries: int = 3) -> t
 
 
 def main() -> None:
+    global DATA_DIR, IMG_DIR
     ap = argparse.ArgumentParser(description="Download ISIC-DICM-17K images from the ISIC Archive.")
     ap.add_argument("--workers", type=int, default=16, help="Concurrent download threads")
     ap.add_argument("--limit", type=int, default=0, help="Download only the first N ids (smoke test)")
+    ap.add_argument("--data-dir", default=str(DATA_DIR), help="Target folder (default data/raw/isic_dicm_17k)")
+    ap.add_argument("--metadata-only", action="store_true", help="Fetch the two CSVs and stop")
     args = ap.parse_args()
 
+    DATA_DIR = Path(args.data_dir)
+    IMG_DIR = DATA_DIR / "images"
+    fetch_metadata()
+    if args.metadata_only:
+        return
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     ids = load_ids()
     if args.limit:

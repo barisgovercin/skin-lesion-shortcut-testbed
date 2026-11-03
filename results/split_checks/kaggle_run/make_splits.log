@@ -1,0 +1,71 @@
+Train: 5988 (19.5% malignant)
+Val:   1985 (19.4% malignant)
+Test:  2042 (19.7% malignant)
+Train: 6023 (19.5% malignant)
+Val:   1979 (19.9% malignant)
+Test:  2013 (19.2% malignant)
+Train: 5995 (19.5% malignant)
+Val:   2003 (19.2% malignant)
+Test:  2017 (19.9% malignant)
+Train: 5954 (19.5% malignant)
+Val:   2002 (19.8% malignant)
+Test:  2059 (19.2% malignant)
+Train: 6044 (19.4% malignant)
+Val:   1971 (19.8% malignant)
+Test:  2000 (19.6% malignant)
+wrote /tmp/testbed/splits/ham10000_seed42.csv
+wrote /tmp/testbed/splits/ham10000_seed123.csv
+wrote /tmp/testbed/splits/ham10000_seed456.csv
+wrote /tmp/testbed/splits/ham10000_seed789.csv
+wrote /tmp/testbed/splits/ham10000_seed1024.csv
+ISIC 2020: 37648 images, 3732 patient groups
+Train: 22732 (13.9% malignant)
+Val:   7699 (13.0% malignant)
+Test:  7217 (13.0% malignant)
+ISIC 2020: 37648 images, 3732 patient groups
+Train: 22454 (13.3% malignant)
+Val:   7353 (14.9% malignant)
+Test:  7841 (13.0% malignant)
+ISIC 2020: 37648 images, 3732 patient groups
+Train: 22404 (14.0% malignant)
+Val:   7441 (13.1% malignant)
+Test:  7803 (12.7% malignant)
+ISIC 2020: 37648 images, 3732 patient groups
+Train: 23066 (13.2% malignant)
+Val:   7099 (13.8% malignant)
+Test:  7483 (14.4% malignant)
+ISIC 2020: 37648 images, 3732 patient groups
+Train: 22663 (13.6% malignant)
+Val:   7067 (13.8% malignant)
+Test:  7918 (13.2% malignant)
+wrote /tmp/testbed/splits/isic2020_seed42.csv
+wrote /tmp/testbed/splits/isic2020_seed123.csv
+wrote /tmp/testbed/splits/isic2020_seed456.csv
+wrote /tmp/testbed/splits/isic2020_seed789.csv
+wrote /tmp/testbed/splits/isic2020_seed1024.csv
+ISIC-DICM-17K: 17060 images, 13707 lesion groups
+Train: 10202 (49.9% malignant)
+Val:   3350 (48.9% malignant)
+Test:  3508 (51.3% malignant)
+ISIC-DICM-17K: 17060 images, 13707 lesion groups
+Train: 10201 (49.8% malignant)
+Val:   3435 (50.6% malignant)
+Test:  3424 (50.1% malignant)
+ISIC-DICM-17K: 17060 images, 13707 lesion groups
+Train: 10322 (50.4% malignant)
+Val:   3326 (48.9% malignant)
+Test:  3412 (49.9% malignant)
+ISIC-DICM-17K: 17060 images, 13707 lesion groups
+Train: 10156 (49.6% malignant)
+Val:   3342 (48.7% malignant)
+Test:  3562 (52.3% malignant)
+ISIC-DICM-17K: 17060 images, 13707 lesion groups
+Train: 10300 (50.3% malignant)
+Val:   3345 (49.0% malignant)
+Test:  3415 (50.1% malignant)
+wrote /tmp/testbed/splits/isic_dicm_17k_seed42.csv
+wrote /tmp/testbed/splits/isic_dicm_17k_seed123.csv
+wrote /tmp/testbed/splits/isic_dicm_17k_seed456.csv
+wrote /tmp/testbed/splits/isic_dicm_17k_seed789.csv
+wrote /tmp/testbed/splits/isic_dicm_17k_seed1024.csv
+

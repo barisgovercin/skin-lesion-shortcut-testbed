@@ -1,0 +1,212 @@
+{
+  "ham10000": {
+    "0.99": {
+      "train_test_pairs_mean": 0.0,
+      "test_images_mean": 0.0,
+      "test_fraction_mean": 0.0,
+      "train_test_pairs_range": [
+        0,
+        0
+      ],
+      "test_images_range": [
+        0,
+        0
+      ],
+      "test_fraction_range": [
+        0.0,
+        0.0
+      ]
+    },
+    "0.98": {
+      "train_test_pairs_mean": 0.0,
+      "test_images_mean": 0.0,
+      "test_fraction_mean": 0.0,
+      "train_test_pairs_range": [
+        0,
+        0
+      ],
+      "test_images_range": [
+        0,
+        0
+      ],
+      "test_fraction_range": [
+        0.0,
+        0.0
+      ]
+    },
+    "0.97": {
+      "train_test_pairs_mean": 1.2,
+      "test_images_mean": 1.2,
+      "test_fraction_mean": 0.0005866441775886928,
+      "train_test_pairs_range": [
+        0,
+        3
+      ],
+      "test_images_range": [
+        0,
+        3
+      ],
+      "test_fraction_range": [
+        0.0,
+        0.0014570179698882952
+      ]
+    },
+    "0.95": {
+      "train_test_pairs_mean": 49.6,
+      "test_images_mean": 32.6,
+      "test_fraction_mean": 0.016081996710368574,
+      "train_test_pairs_range": [
+        38,
+        64
+      ],
+      "test_images_range": [
+        26,
+        37
+      ],
+      "test_fraction_range": [
+        0.013,
+        0.01834407535944472
+      ]
+    }
+  },
+  "isic2020": {
+    "0.99": {
+      "train_test_pairs_mean": 0.4,
+      "test_images_mean": 0.4,
+      "test_fraction_mean": 5.443959427985036e-05,
+      "train_test_pairs_range": [
+        0,
+        1
+      ],
+      "test_images_range": [
+        0,
+        1
+      ],
+      "test_fraction_range": [
+        0.0,
+        0.00013856172925038105
+      ]
+    },
+    "0.98": {
+      "train_test_pairs_mean": 1.6,
+      "test_images_mean": 1.6,
+      "test_fraction_mean": 0.00021200345889678165,
+      "train_test_pairs_range": [
+        1,
+        3
+      ],
+      "test_images_range": [
+        1,
+        3
+      ],
+      "test_fraction_range": [
+        0.00012629451881788332,
+        0.00040090872644661234
+      ]
+    },
+    "0.97": {
+      "train_test_pairs_mean": 48.4,
+      "test_images_mean": 36.6,
+      "test_fraction_mean": 0.004783707714920088,
+      "train_test_pairs_range": [
+        42,
+        57
+      ],
+      "test_images_range": [
+        31,
+        40
+      ],
+      "test_fraction_range": [
+        0.004142723506614994,
+        0.0052653457115144795
+      ]
+    },
+    "0.95": {
+      "train_test_pairs_mean": 3919.0,
+      "test_images_mean": 682.2,
+      "test_fraction_mean": 0.08937705299593846,
+      "train_test_pairs_range": [
+        3711,
+        4243
+      ],
+      "test_images_range": [
+        643,
+        719
+      ],
+      "test_fraction_range": [
+        0.08240420351146995,
+        0.09962588333102397
+      ]
+    }
+  },
+  "isic_dicm_17k": {
+    "0.99": {
+      "train_test_pairs_mean": 24.0,
+      "test_images_mean": 23.0,
+      "test_fraction_mean": 0.0066358365551576325,
+      "train_test_pairs_range": [
+        21,
+        29
+      ],
+      "test_images_range": [
+        20,
+        28
+      ],
+      "test_fraction_range": [
+        0.005861664712778429,
+        0.00798175598631699
+      ]
+    },
+    "0.98": {
+      "train_test_pairs_mean": 33.2,
+      "test_images_mean": 29.8,
+      "test_fraction_mean": 0.00859096769355542,
+      "train_test_pairs_range": [
+        29,
+        43
+      ],
+      "test_images_range": [
+        25,
+        37
+      ],
+      "test_fraction_range": [
+        0.007327080890973036,
+        0.010547320410490307
+      ]
+    },
+    "0.97": {
+      "train_test_pairs_mean": 48.8,
+      "test_images_mean": 42.4,
+      "test_fraction_mean": 0.012244490455835573,
+      "train_test_pairs_range": [
+        40,
+        57
+      ],
+      "test_images_range": [
+        35,
+        49
+      ],
+      "test_fraction_range": [
+        0.01022196261682243,
+        0.014348462664714495
+      ]
+    },
+    "0.95": {
+      "train_test_pairs_mean": 249.2,
+      "test_images_mean": 119.0,
+      "test_fraction_mean": 0.034379463798683056,
+      "train_test_pairs_range": [
+        185,
+        294
+      ],
+      "test_images_range": [
+        110,
+        126
+      ],
+      "test_fraction_range": [
+        0.030881527231892195,
+        0.0369284876905041
+      ]
+    }
+  }
+}

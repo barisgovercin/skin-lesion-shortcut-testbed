@@ -1,0 +1,143 @@
+{
+  "dataset": "isic_dicm_17k",
+  "seeds": {
+    "42": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 10202,
+          "val": 3350,
+          "test": 3508
+        },
+        "malignant": {
+          "train": 0.4992158400313664,
+          "val": 0.4886567164179105,
+          "test": 0.5131128848346637
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 23365,
+          "0.95": 601,
+          "0.98": 81,
+          "0.99": 57
+        }
+      }
+    },
+    "123": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 10201,
+          "val": 3435,
+          "test": 3424
+        },
+        "malignant": {
+          "train": 0.4976963042838937,
+          "val": 0.506259097525473,
+          "test": 0.5005841121495327
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 23845,
+          "0.95": 624,
+          "0.98": 80,
+          "0.99": 56
+        }
+      }
+    },
+    "456": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 10322,
+          "val": 3326,
+          "test": 3412
+        },
+        "malignant": {
+          "train": 0.504068978880062,
+          "val": 0.4885748647023452,
+          "test": 0.4988276670574443
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 23941,
+          "0.95": 637,
+          "0.98": 73,
+          "0.99": 50
+        }
+      }
+    },
+    "789": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 10156,
+          "val": 3342,
+          "test": 3562
+        },
+        "malignant": {
+          "train": 0.49635683339897596,
+          "val": 0.4865350089766607,
+          "test": 0.5230207748455924
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 22574,
+          "0.95": 564,
+          "0.98": 79,
+          "0.99": 57
+        }
+      }
+    },
+    "1024": {
+      "leakage": {
+        "images_in_multiple_splits": 0,
+        "duplicate_rows": 0,
+        "groups_in_multiple_splits": 0,
+        "sizes": {
+          "train": 10300,
+          "val": 3345,
+          "test": 3415
+        },
+        "malignant": {
+          "train": 0.5028155339805825,
+          "val": 0.49028400597907323,
+          "test": 0.5010248901903368
+        }
+      },
+      "duplicates": {
+        "exact_cross_split": 0,
+        "near_cross_split": {
+          "0.9": 23566,
+          "0.95": 611,
+          "0.98": 76,
+          "0.99": 57
+        }
+      }
+    }
+  },
+  "images": {
+    "n_images": 17060,
+    "exact_duplicate_pairs": 0,
+    "near_threshold": 0.9,
+    "near_duplicate_pairs": 44048,
+    "near_pairs_same_group": 1965,
+    "cross_split_candidates_any_seed": 41348
+  }
+}
