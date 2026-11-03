@@ -351,7 +351,7 @@ def prepare_isic2020(data_dir="data/raw/isic2020", seed=42, include_metadata=Fal
         meta, group_col="patient_id", label_col="label", seed=seed,
     )
 
-    # Candidate image dirs — _find_image checks each, so unknown layouts are tolerated.
+    # Candidate image dirs: _find_image checks each, so unknown layouts are tolerated.
     img_dirs = [
         data_dir / "train" / "train",
         data_dir / "train",

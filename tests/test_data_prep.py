@@ -94,7 +94,7 @@ def test_split_proportions_and_classes():
         train, val, test, _, _ = prepare_isic2020(tmp, seed=42, include_metadata=False)
 
     total = len(df)
-    # Per-image proportions should be roughly 60/20/20 (loose bounds — groups vary in size).
+    # Per-image proportions should be roughly 60/20/20 (loose bounds, groups vary in size).
     assert 0.50 <= len(train) / total <= 0.70
     assert 0.12 <= len(val) / total <= 0.28
     assert 0.12 <= len(test) / total <= 0.28

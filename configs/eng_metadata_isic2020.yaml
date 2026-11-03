@@ -9,7 +9,7 @@ data:
   batch_size: 32
   num_workers: 4
   engineered_metadata: true   # clinical FE (recovers dropped torso/site categories)
-  patient_aggregates: true    # images_per_patient — the one metadata lever that helps on ISIC (+~0.06 AUROC, diagnostic)
+  patient_aggregates: true    # images_per_patient: the one metadata lever that helps on ISIC (+~0.06 AUROC, diagnostic)
 
 model:
   backbone: convnext_base

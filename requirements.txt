@@ -1,32 +1,33 @@
-# Core ML — PyTorch with CUDA 12.8 is installed separately (see setup.bat)
-torchvision
-torchaudio
+# Pinned to the environment in which the released checkpoints were retrained and the
+# paper's results reproduced (Kaggle, Linux, Python 3.13, Tesla T4; see
+# results/checkpoint_eval/environment.txt). The paper's own runs used Windows 11,
+# Python 3.11.9, PyTorch 2.11.0 + CUDA 12.8 and transformers 5.10.2 on an RTX 5080.
+#
+# GPU: install the CUDA build of torch/torchvision for your platform first
+# (https://pytorch.org/get-started/locally/), then `pip install -r requirements.txt`.
+# The GPU-free demo needs only: numpy pandas scikit-learn scipy.
 
-# Data & ML
-scikit-learn>=1.3
-pandas>=2.0
-numpy>=1.24
-scipy>=1.11
-Pillow>=10.0
+# Core
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.20.2
+numpy==2.1.3
+pandas==2.3.3
+scipy==1.16.3
+scikit-learn==1.6.1
+pillow==13.0.0
+pyyaml==6.0.3
+requests==2.34.2
 
-# NLP
-transformers>=4.40
-tokenizers>=0.19
+# Figures
+matplotlib==3.10.0
+seaborn==0.13.2
 
-# Explainability (Integrated Gradients modality attribution)
-captum>=0.7
+# Integrated Gradients modality attribution (optional; skipped if missing)
+captum==0.9.0
 
-# Config & I/O
-pyyaml>=6.0
+# Tests
+pytest==8.4.2
 
-# Visualisation
-matplotlib>=3.8
-seaborn>=0.13
-
-# Kaggle data download
-kaggle>=1.6
-
-# Dev / testing
-pytest>=8.0
-black>=24.0
-isort>=5.13
+# Only to regenerate the LLM note pool (a cached pool ships in data/llm_notes_cache/):
+# anthropic

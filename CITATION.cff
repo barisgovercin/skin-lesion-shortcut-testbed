@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below and this software."
+title: "skin-lesion-shortcut-testbed: Shortcut Reliance Score and synthetic clinical-text testbed for multimodal skin cancer AI"
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/barisgovercin/skin-lesion-shortcut-testbed"
+keywords:
+  - skin cancer
+  - multimodal deep learning
+  - shortcut learning
+  - clinical free text
+  - counterfactual augmentation
+authors:
+  - given-names: Muhammed Baris
+    family-names: Govercin
+    affiliation: "School of Computer Science and Electronic Engineering, University of Essex"
+    orcid: "https://orcid.org/0009-0008-9007-3639"
+  - given-names: Gordon C
+    family-names: Wishart
+    affiliation: "University of Essex; Anglia Ruskin University; Check4Cancer Ltd"
+    orcid: "https://orcid.org/0000-0001-7955-0299"
+  - given-names: Haider
+    family-names: Raza
+    affiliation: "School of Computer Science and Electronic Engineering, University of Essex"
+preferred-citation:
+  type: article
+  title: "Detecting and mitigating language shortcuts in multimodal AI for skin cancer diagnosis"
+  journal: "Scientific Reports"
+  status: submitted
+  authors:
+    - given-names: Muhammed Baris
+      family-names: Govercin
+    - given-names: Gordon C
+      family-names: Wishart
+    - given-names: Haider
+      family-names: Raza
