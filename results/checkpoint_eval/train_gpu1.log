@@ -1,0 +1,31 @@
+Device: cuda | dataset ham10000 | mode bakeoff
+Train: 5988 (19.5% malignant)
+Val:   1985 (19.4% malignant)
+Test:  2042 (19.7% malignant)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 10917.67it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: emilyalsentzer/Bio_ClinicalBERT
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.decoder.weight             | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Epoch 1/5 (996s) | Train Loss: 0.7464 AUROC: 0.8574 | Val Loss: 0.6245 AUROC: 0.9078 AP: 0.6867 Spec@95Sens: 0.6738
+  -> New best model saved (AUROC: 0.9078)
+Epoch 2/5 (992s) | Train Loss: 0.5667 AUROC: 0.9205 | Val Loss: 0.5849 AUROC: 0.9192 AP: 0.7205 Spec@95Sens: 0.6912
+  -> New best model saved (AUROC: 0.9192)
+Epoch 3/5 (992s) | Train Loss: 0.4920 AUROC: 0.9407 | Val Loss: 0.6994 AUROC: 0.9216 AP: 0.7416 Spec@95Sens: 0.6944
+  -> New best model saved (AUROC: 0.9216)
+Epoch 4/5 (991s) | Train Loss: 0.4461 AUROC: 0.9516 | Val Loss: 0.6777 AUROC: 0.9205 AP: 0.7387 Spec@95Sens: 0.6875
+Epoch 5/5 (988s) | Train Loss: 0.4168 AUROC: 0.9579 | Val Loss: 0.6316 AUROC: 0.9222 AP: 0.7402 Spec@95Sens: 0.6856
+  -> New best model saved (AUROC: 0.9222)
+[bakeoff] p=1.0 method=counterfactual_aug | AUROC 0.9239+/-0.0000 honestAUROC 0.9241 SRS 0.0031+/-0.0000 FFiltGap -0.0002+/-0.0000
+Saved results/shortcut_ham10000_bakeoff.json

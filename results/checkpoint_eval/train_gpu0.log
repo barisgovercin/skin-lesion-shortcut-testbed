@@ -1,0 +1,28 @@
+Device: cuda | dataset ham10000 | mode bakeoff
+Train: 5988 (19.5% malignant)
+Val:   1985 (19.4% malignant)
+Test:  2042 (19.7% malignant)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7851.92it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: emilyalsentzer/Bio_ClinicalBERT
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.predictions.decoder.weight             | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Epoch 1/5 (551s) | Train Loss: 0.0672 AUROC: 0.9998 | Val Loss: 0.0016 AUROC: 1.0000 AP: 1.0000 Spec@95Sens: 1.0000
+  -> New best model saved (AUROC: 1.0000)
+Epoch 2/5 (486s) | Train Loss: 0.0022 AUROC: 1.0000 | Val Loss: 0.0009 AUROC: 1.0000 AP: 1.0000 Spec@95Sens: 1.0000
+Epoch 3/5 (487s) | Train Loss: 0.0014 AUROC: 1.0000 | Val Loss: 0.0007 AUROC: 1.0000 AP: 1.0000 Spec@95Sens: 1.0000
+Epoch 4/5 (487s) | Train Loss: 0.0011 AUROC: 1.0000 | Val Loss: 0.0006 AUROC: 1.0000 AP: 1.0000 Spec@95Sens: 1.0000
+Epoch 5/5 (486s) | Train Loss: 0.0010 AUROC: 1.0000 | Val Loss: 0.0006 AUROC: 1.0000 AP: 1.0000 Spec@95Sens: 1.0000
+[bakeoff] p=1.0 method=naive | AUROC 1.0000+/-0.0000 honestAUROC 0.7398 SRS 0.9976+/-0.0000 FFiltGap 0.2602+/-0.0000
+Saved results/shortcut_ham10000_bakeoff.json

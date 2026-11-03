@@ -1,0 +1,15 @@
+[
+  {
+    "seed": 42,
+    "leakage_p": 1.0,
+    "method": "naive",
+    "auroc": 1.0,
+    "ap": 0.9999999999999999,
+    "spec95": 1.0,
+    "auroc_ffilt": 0.7397629432701959,
+    "ffilt_gap": 0.26023705672980413,
+    "srs": 0.9976317490510244,
+    "flip_rate": 1.0,
+    "text_frac": null
+  }
+]

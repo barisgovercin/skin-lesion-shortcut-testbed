@@ -75,46 +75,94 @@ def _build_model(cfg, device):
         text_freeze=cfg["model"].get("text_freeze", False)).to(device)
 
 
-def run_seed(cfg, seed, leakage_p, method, device):
+def _note_makers(cfg):
+    """(engine for the configured notes, engine for the honest FFilt probe).
+
+    data.text_source: llm uses LLM-generated notes with identical leakage semantics;
+    the FFilt probe stays template facts-only (no API cost). Unset -> template.
+    """
+    if cfg["data"].get("text_source", "template") != "llm":
+        return add_text_columns, add_text_columns
+    from src.preprocessing.llm_text import add_llm_text_columns
+    provider = cfg["data"].get("llm_provider", "anthropic")
+    llm_model = cfg["data"].get("llm_model", "")
+
+    def mk(df, level, seed, leakage_p=1.0, pair=False):
+        return add_llm_text_columns(df, level=level, seed=seed, leakage_p=leakage_p,
+                                    pair=pair, provider=provider, model=llm_model)
+    return mk, add_text_columns
+
+
+def training_notes(cfg, tr, seed, leakage_p, method):
+    """Training notes for one mitigation method.
+
+    ffilt_only_2x is the training-budget control: filtered notes with every row
+    twice per epoch, i.e. the same number of rows and steps as counterfactual_aug.
+    """
+    mk, _ = _note_makers(cfg)
+    if method in ("ffilt_only", "ffilt_only_2x"):
+        tr_t = mk(tr, level=FFILT, seed=seed, leakage_p=leakage_p)
+        if method == "ffilt_only_2x":
+            tr_t = tr_t.loc[tr_t.index.repeat(2)].reset_index(drop=True)
+        return tr_t
+    tr_t = mk(tr, level=cfg["data"]["text_filter_level"], seed=seed, leakage_p=leakage_p, pair=True)
+    return build_counterfactual_df(tr_t) if method == "counterfactual_aug" else tr_t
+
+
+def test_notes(cfg, te, seed, leakage_p):
+    """Test notes at the configured level (with flip pairs) and the FFilt probe."""
+    mk, ffilt_mk = _note_makers(cfg)
+    te_t = mk(te, level=cfg["data"]["text_filter_level"], seed=seed, leakage_p=leakage_p, pair=True)
+    return te_t, ffilt_mk(te, level=FFILT, seed=seed)
+
+
+def evaluate_model(model, cfg, te_t, te_ffilt, img_dirs, tok, device, pos_w):
+    """Visible AUROC on the leaky notes, honest AUROC on FFilt notes, SRS and FlipRate."""
+    crit = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_w]).to(device))
+    m_leaky = evaluate(model, _loader(te_t, img_dirs, tok, "test", cfg, shuffle=False),
+                       crit, device, "vision_text")
+    m_ffilt = evaluate(model, _loader(te_ffilt, img_dirs, tok, "test", cfg, shuffle=False),
+                       crit, device, "vision_text")
+    srs = srs_from_loader(model, _paired_loader(te_t, img_dirs, tok, "test", cfg, shuffle=False), device)
+    return {"auroc": m_leaky["auroc"], "ap": m_leaky["ap"],
+            "spec95": m_leaky["specificity_at_95_sens"],
+            "auroc_ffilt": m_ffilt["auroc"],
+            "ffilt_gap": ffilt_gap_from_auroc(m_leaky["auroc"], m_ffilt["auroc"]),
+            "srs": srs["srs"], "flip_rate": srs["flip_rate"]}
+
+
+def save_checkpoint(path, model, meta):
+    """Model weights plus run metadata (no optimizer state), for release."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    torch.save({"model_state_dict": model.state_dict(), "meta": meta}, path)
+
+
+def load_checkpoint(path, model):
+    ckpt = torch.load(path, map_location="cpu", weights_only=False)
+    model.load_state_dict(ckpt["model_state_dict"])
+    return ckpt.get("meta", {})
+
+
+def run_seed(cfg, seed, leakage_p, method, device, keep_dir=None):
     set_seed(seed)
     dataset = cfg["data"]["dataset"]
     prep = PREP[dataset]
     tr, va, te, img_dirs, _ = prep(data_dir=cfg["data"]["data_dir"], seed=seed)
     level = cfg["data"]["text_filter_level"]
     tok = build_tokenizer(cfg["model"].get("text_model", DEFAULT_TEXT_MODEL))
+    mk, _ = _note_makers(cfg)
 
-    # Pick the text engine + the honest FFilt probe engine.
-    #  - data.text_source: llm: LLM-generated realistic notes with identical
-    #    leakage semantics, but the FFilt probe stays template facts-only (no API
-    #    cost).
-    #  - unset -> template, so existing configs behave exactly as before.
-    text_source = cfg["data"].get("text_source", "template")
-    if text_source == "llm":
-        from src.preprocessing.llm_text import add_llm_text_columns
-        _prov = cfg["data"].get("llm_provider", "anthropic")
-        _lmodel = cfg["data"].get("llm_model", "")
-
-        def mk(df, level, seed, leakage_p=1.0, pair=False):
-            return add_llm_text_columns(df, level=level, seed=seed, leakage_p=leakage_p,
-                                        pair=pair, provider=_prov, model=_lmodel)
-        ffilt_mk = add_text_columns
-    else:
-        mk = add_text_columns
-        ffilt_mk = add_text_columns
-
-    if method == "ffilt_only":
-        tr_t = mk(tr, level=FFILT, seed=seed, leakage_p=leakage_p)
-    else:
-        tr_t = mk(tr, level=level, seed=seed, leakage_p=leakage_p, pair=True)
+    tr_t = training_notes(cfg, tr, seed, leakage_p, method)
     va_t = mk(va, level=level, seed=seed, leakage_p=leakage_p)
-    te_t = mk(te, level=level, seed=seed, leakage_p=leakage_p, pair=True)
-    te_ffilt = ffilt_mk(te, level=FFILT, seed=seed)
+    te_t, te_ffilt = test_notes(cfg, te, seed, leakage_p)
 
     cw = compute_class_weights(tr_t)
     pos_w = float(cw[1] / cw[0])
     model = _build_model(cfg, device)
+    text_source = cfg["data"].get("text_source", "template")
     _ts_tag = "_llm" if text_source == "llm" else ""
-    save_dir = Path(f"models/checkpoints/shortcut_{cfg['data']['dataset']}{_ts_tag}_{method}_p{leakage_p}_seed{seed}")
+    run_name = f"shortcut_{dataset}{_ts_tag}_{method}_p{leakage_p}_seed{seed}"
+    save_dir = Path(f"models/checkpoints/{run_name}")
     save_dir.mkdir(parents=True, exist_ok=True)
 
     if method in ("consistency", "adversarial"):
@@ -136,8 +184,6 @@ def run_seed(cfg, seed, leakage_p, method, device):
                     adversarial_train_step(model, adv_head, batch, opt, device, pos_w, lam_a)
         torch.save({"model_state_dict": model.state_dict()}, save_dir / "best_model.pt")
     else:
-        if method == "counterfactual_aug":
-            tr_t = build_counterfactual_df(tr_t)
         train_loader = _loader(tr_t, img_dirs, tok, "train", cfg)
         val_loader = _loader(va_t, img_dirs, tok, "val", cfg)
         tcfg = {**cfg["training"], "pos_weight": pos_w, "save_dir": str(save_dir)}
@@ -145,12 +191,7 @@ def run_seed(cfg, seed, leakage_p, method, device):
 
     ckpt = torch.load(save_dir / "best_model.pt", map_location=device, weights_only=False)
     model.load_state_dict(ckpt["model_state_dict"])
-    crit = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_w]).to(device))
-    m_leaky = evaluate(model, _loader(te_t, img_dirs, tok, "test", cfg, shuffle=False),
-                       crit, device, "vision_text")
-    m_ffilt = evaluate(model, _loader(te_ffilt, img_dirs, tok, "test", cfg, shuffle=False),
-                       crit, device, "vision_text")
-    srs = srs_from_loader(model, _paired_loader(te_t, img_dirs, tok, "test", cfg, shuffle=False), device)
+    metrics = evaluate_model(model, cfg, te_t, te_ffilt, img_dirs, tok, device, pos_w)
 
     # IG modality attribution on one test batch (best-effort; None if captum errors).
     try:
@@ -160,16 +201,17 @@ def run_seed(cfg, seed, leakage_p, method, device):
         print(f"  IG attribution skipped: {type(exc).__name__}: {exc}")
         text_frac = None
 
-    # Metrics are extracted; the ~2GB checkpoint is throwaway. Drop it so a long
-    # sweep does not accumulate hundreds of GB and fill the disk.
+    if keep_dir:
+        save_checkpoint(Path(keep_dir) / f"{run_name}.pt", model,
+                        {"dataset": dataset, "method": method, "seed": seed,
+                         "leakage_p": leakage_p, "text_source": text_source,
+                         "config": cfg, "metrics": metrics})
+    # The full training checkpoint (~2GB with optimizer state) is throwaway. Drop it
+    # so a long sweep does not accumulate hundreds of GB and fill the disk.
     shutil.rmtree(save_dir, ignore_errors=True)
 
-    return {"seed": seed, "leakage_p": leakage_p, "method": method,
-            "auroc": m_leaky["auroc"], "ap": m_leaky["ap"],
-            "spec95": m_leaky["specificity_at_95_sens"],
-            "auroc_ffilt": m_ffilt["auroc"],
-            "ffilt_gap": ffilt_gap_from_auroc(m_leaky["auroc"], m_ffilt["auroc"]),
-            "srs": srs["srs"], "flip_rate": srs["flip_rate"], "text_frac": text_frac}
+    return {"seed": seed, "leakage_p": leakage_p, "method": method, **metrics,
+            "text_frac": text_frac}
 
 
 def main():
@@ -177,6 +219,8 @@ def main():
     ap.add_argument("--config", required=True)
     ap.add_argument("--mode", choices=["dose", "bakeoff"], required=True)
     ap.add_argument("--seeds", type=int, nargs="+", default=SEEDS)
+    ap.add_argument("--keep-checkpoints", metavar="DIR",
+                    help="also save each trained model (weights only) to DIR")
     args = ap.parse_args()
     cfg = yaml.safe_load(open(args.config))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -189,7 +233,7 @@ def main():
 
     results = []
     for p, mth in jobs:
-        rows = [run_seed(cfg, s, p, mth, device) for s in args.seeds]
+        rows = [run_seed(cfg, s, p, mth, device, args.keep_checkpoints) for s in args.seeds]
         results.extend(rows)
         au = mean_ci([r["auroc"] for r in rows]); srs = mean_ci([r["srs"] for r in rows])
         gap = mean_ci([r["ffilt_gap"] for r in rows]); hon = mean_ci([r["auroc_ffilt"] for r in rows])
