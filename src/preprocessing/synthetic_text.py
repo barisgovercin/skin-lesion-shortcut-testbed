@@ -25,6 +25,8 @@ leading-language shortcut learning.
 import hashlib
 import random
 
+import pandas as pd
+
 ORIG, CFILT, DFILT, FFILT = "Orig", "CFilt", "DFilt", "FFilt"
 LEVELS = [ORIG, CFILT, DFILT, FFILT]
 
@@ -234,3 +236,15 @@ def add_text_columns(df, level=ORIG, seed=0, leakage_p=1.0, pair=False, col="tex
 def add_synthetic_text(df, level=ORIG, seed=0, col="text"):
     """Legacy wrapper: full-leakage (p=1.0) note at the given filter level."""
     return add_text_columns(df, level=level, seed=seed, leakage_p=1.0, col=col)
+
+
+def build_counterfactual_df(df, label_col="label"):
+    """Duplicate each row into a concordant-text copy and a flipped-text copy,
+    BOTH carrying the true label. Requires `text_concordant` / `text_flipped`
+    columns. The model thus sees identical image+label with contradictory leading
+    text, so leading language becomes uninformative and it must use image+facts.
+    """
+    a = df.copy(); a["text"] = a["text_concordant"]
+    b = df.copy(); b["text"] = b["text_flipped"]
+    out = pd.concat([a, b], ignore_index=False).sort_index(kind="stable")
+    return out.reset_index(drop=True)

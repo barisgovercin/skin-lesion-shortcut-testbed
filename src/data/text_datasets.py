@@ -1,23 +1,12 @@
 """Datasets/utilities for controllable-text training and shortcut evaluation."""
 from pathlib import Path
 
-import pandas as pd
 import torch
 from PIL import Image
 
 from src.data.dataset import find_image_path
-
-
-def build_counterfactual_df(df, label_col="label"):
-    """Duplicate each row into a concordant-text copy and a flipped-text copy,
-    BOTH carrying the true label. Requires `text_concordant` / `text_flipped`
-    columns. The model thus sees identical image+label with contradictory leading
-    text, so leading language becomes uninformative and it must use image+facts.
-    """
-    a = df.copy(); a["text"] = a["text_concordant"]
-    b = df.copy(); b["text"] = b["text_flipped"]
-    out = pd.concat([a, b], ignore_index=False).sort_index(kind="stable")
-    return out.reset_index(drop=True)
+# Lives in the torch-free text module so the CPU demo can use it; re-exported here.
+from src.preprocessing.synthetic_text import build_counterfactual_df  # noqa: F401
 
 
 class PairedTextDataset(torch.utils.data.Dataset):

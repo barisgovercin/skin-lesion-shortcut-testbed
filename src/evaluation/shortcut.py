@@ -1,6 +1,11 @@
-"""Shortcut-reliance metrics: SRS (flip test) and FFilt-gap."""
+"""Shortcut-reliance metrics: SRS (flip test) and FFilt-gap.
+
+SRS applies the counterfactual token fairness gap of Garg et al. (2019,
+"Counterfactual Fairness in Text Classification through Robustness") to
+diagnosis-bearing clinical text. torch is imported lazily so the metrics run on a
+plain CPU install (see scripts/srs_demo.py).
+"""
 import numpy as np
-import torch
 
 
 def srs_from_probs(p_orig, p_flip, threshold=0.5):
@@ -18,19 +23,21 @@ def ffilt_gap_from_auroc(auroc_leaky, auroc_ffilt):
     return float(auroc_leaky - auroc_ffilt)
 
 
-@torch.no_grad()
 def srs_from_loader(model, paired_loader, device):
     """Run a PairedTextDataset loader; SRS + flip_rate over the whole set.
 
     Each batch is (image, ids_c, mask_c, ids_f, mask_f, label); the model is
     scored on the concordant and flipped text with the same image.
     """
+    import torch
+
     model.eval()
     p_orig, p_flip = [], []
-    for img, ic, mc, iff, mf, _ in paired_loader:
-        img = img.to(device)
-        lo = model(img, text=(ic.to(device), mc.to(device)))
-        lf = model(img, text=(iff.to(device), mf.to(device)))
-        p_orig.extend(torch.sigmoid(lo).cpu().numpy().tolist())
-        p_flip.extend(torch.sigmoid(lf).cpu().numpy().tolist())
+    with torch.no_grad():
+        for img, ic, mc, iff, mf, _ in paired_loader:
+            img = img.to(device)
+            lo = model(img, text=(ic.to(device), mc.to(device)))
+            lf = model(img, text=(iff.to(device), mf.to(device)))
+            p_orig.extend(torch.sigmoid(lo).cpu().numpy().tolist())
+            p_flip.extend(torch.sigmoid(lf).cpu().numpy().tolist())
     return srs_from_probs(p_orig, p_flip)
