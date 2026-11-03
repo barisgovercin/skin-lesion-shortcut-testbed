@@ -1,0 +1,72 @@
+[
+  {
+    "mode": "vision_text",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 1.0,
+    "test_metrics": {
+      "loss": 0.0016590912195139662,
+      "auroc": 1.0,
+      "ap": 1.0,
+      "threshold_95_sens": 0.9983950257301331,
+      "specificity_at_95_sens": 1.0,
+      "sensitivity": 0.9503722084367245
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 1.0,
+    "test_metrics": {
+      "loss": 0.0013874774459625469,
+      "auroc": 1.0,
+      "ap": 1.0,
+      "threshold_95_sens": 0.9984221458435059,
+      "specificity_at_95_sens": 1.0,
+      "sensitivity": 1.0
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 1.0,
+    "test_metrics": {
+      "loss": 0.0014914934715947775,
+      "auroc": 1.0,
+      "ap": 1.0,
+      "threshold_95_sens": 0.9985097050666809,
+      "specificity_at_95_sens": 1.0,
+      "sensitivity": 1.0
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 1.0,
+    "test_metrics": {
+      "loss": 0.0015249849243280434,
+      "auroc": 1.0,
+      "ap": 0.9999999999999999,
+      "threshold_95_sens": 0.9983375072479248,
+      "specificity_at_95_sens": 1.0,
+      "sensitivity": 1.0
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 1.0,
+    "test_metrics": {
+      "loss": 0.001495527934283018,
+      "auroc": 1.0,
+      "ap": 1.0,
+      "threshold_95_sens": 0.9985212683677673,
+      "specificity_at_95_sens": 1.0,
+      "sensitivity": 1.0
+    }
+  }
+]

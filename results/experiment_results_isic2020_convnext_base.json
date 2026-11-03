@@ -1,0 +1,142 @@
+[
+  {
+    "mode": "vision",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.98153432667454,
+    "test_metrics": {
+      "loss": 0.32426636520702457,
+      "auroc": 0.9775520192510316,
+      "ap": 0.9292873207332498,
+      "threshold_95_sens": 0.18690861761569977,
+      "specificity_at_95_sens": 0.8394904458598726,
+      "sensitivity": 0.9509071504802561
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9834106968078964,
+    "test_metrics": {
+      "loss": 0.2872905049255925,
+      "auroc": 0.9821397900405879,
+      "ap": 0.9448170558763441,
+      "threshold_95_sens": 0.23133695125579834,
+      "specificity_at_95_sens": 0.8774912075029309,
+      "sensitivity": 0.9508357915437562
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9827364469430566,
+    "test_metrics": {
+      "loss": 0.26198894156692815,
+      "auroc": 0.984643703733524,
+      "ap": 0.9477808250302708,
+      "threshold_95_sens": 0.33649858832359314,
+      "specificity_at_95_sens": 0.9055938922331522,
+      "sensitivity": 0.9506048387096774
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.982079361372512,
+    "test_metrics": {
+      "loss": 0.2497024888683772,
+      "auroc": 0.9878450041939729,
+      "ap": 0.9601622309759181,
+      "threshold_95_sens": 0.509857714176178,
+      "specificity_at_95_sens": 0.9430043722673329,
+      "sensitivity": 0.9508804448563485
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9848014878921562,
+    "test_metrics": {
+      "loss": 0.3092266956692875,
+      "auroc": 0.97885235063391,
+      "ap": 0.9372885865713093,
+      "threshold_95_sens": 0.21745665371418,
+      "specificity_at_95_sens": 0.8617176128093158,
+      "sensitivity": 0.950381679389313
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9818589574313529,
+    "test_metrics": {
+      "loss": 0.3277947710905969,
+      "auroc": 0.977843809692133,
+      "ap": 0.9298488962141112,
+      "threshold_95_sens": 0.21869239211082458,
+      "specificity_at_95_sens": 0.8503184713375797,
+      "sensitivity": 0.9509071504802561
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9845739195458749,
+    "test_metrics": {
+      "loss": 0.2665937530752682,
+      "auroc": 0.984290652114522,
+      "ap": 0.9481993559016603,
+      "threshold_95_sens": 0.31299522519111633,
+      "specificity_at_95_sens": 0.9117819460726846,
+      "sensitivity": 0.9508357915437562
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9833593757917246,
+    "test_metrics": {
+      "loss": 0.24801856587259843,
+      "auroc": 0.9853650818647255,
+      "ap": 0.9491537253409427,
+      "threshold_95_sens": 0.27501142024993896,
+      "specificity_at_95_sens": 0.9111731023344589,
+      "sensitivity": 0.9506048387096774
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9826386348381934,
+    "test_metrics": {
+      "loss": 0.2611782466822228,
+      "auroc": 0.9876638153054248,
+      "ap": 0.959950248796414,
+      "threshold_95_sens": 0.6513940095901489,
+      "specificity_at_95_sens": 0.9509681449094316,
+      "sensitivity": 0.9508804448563485
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9836791263693063,
+    "test_metrics": {
+      "loss": 0.31741215908548454,
+      "auroc": 0.9782071902396746,
+      "ap": 0.9334270919032326,
+      "threshold_95_sens": 0.28454992175102234,
+      "specificity_at_95_sens": 0.8812227074235808,
+      "sensitivity": 0.950381679389313
+    }
+  }
+]

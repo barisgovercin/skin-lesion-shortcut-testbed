@@ -1,0 +1,72 @@
+[
+  {
+    "mode": "vision_text",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9158051948051948,
+    "test_metrics": {
+      "loss": 0.6062944727301247,
+      "auroc": 0.912936381652554,
+      "ap": 0.7006653624150962,
+      "threshold_95_sens": 0.1693016141653061,
+      "specificity_at_95_sens": 0.6516168395363027,
+      "sensitivity": 0.9503722084367245
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9173885890886964,
+    "test_metrics": {
+      "loss": 0.6230921537142989,
+      "auroc": 0.9091173469874234,
+      "ap": 0.7120375298874749,
+      "threshold_95_sens": 0.26253724098205566,
+      "specificity_at_95_sens": 0.6715867158671587,
+      "sensitivity": 0.9509043927648578
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9219206010306136,
+    "test_metrics": {
+      "loss": 0.5587604932993074,
+      "auroc": 0.9254640112132834,
+      "ap": 0.764255861156447,
+      "threshold_95_sens": 0.29659515619277954,
+      "specificity_at_95_sens": 0.7126934984520124,
+      "sensitivity": 0.9502487562189055
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9181807481343723,
+    "test_metrics": {
+      "loss": 0.5606044586738839,
+      "auroc": 0.9217110977483797,
+      "ap": 0.7397552551632152,
+      "threshold_95_sens": 0.2545132637023926,
+      "specificity_at_95_sens": 0.7282020444978954,
+      "sensitivity": 0.9545454545454546
+    }
+  },
+  {
+    "mode": "vision_text",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.913823691281686,
+    "test_metrics": {
+      "loss": 0.5695138291418552,
+      "auroc": 0.9185799319727892,
+      "ap": 0.7208614525480975,
+      "threshold_95_sens": 0.32131972908973694,
+      "specificity_at_95_sens": 0.7021144278606966,
+      "sensitivity": 0.951530612244898
+    }
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "mode": "vision",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8548677849254381,
+    "test_metrics": {
+      "loss": 0.4612600778908115,
+      "auroc": 0.8598123211033046,
+      "ap": 0.8654313355332561,
+      "threshold_95_sens": 0.2697237730026245,
+      "specificity_at_95_sens": 0.49063231850117095,
+      "sensitivity": 0.95
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8500442810333417,
+    "test_metrics": {
+      "loss": 0.45966751650672094,
+      "auroc": 0.8622629600060049,
+      "ap": 0.8547563620261477,
+      "threshold_95_sens": 0.2801342010498047,
+      "specificity_at_95_sens": 0.5280701754385965,
+      "sensitivity": 0.9509918319719953
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8538213720435942,
+    "test_metrics": {
+      "loss": 0.457619044418771,
+      "auroc": 0.8619817758261694,
+      "ap": 0.8598378840692338,
+      "threshold_95_sens": 0.228909432888031,
+      "specificity_at_95_sens": 0.4970760233918129,
+      "sensitivity": 0.9500587544065805
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8594094507378639,
+    "test_metrics": {
+      "loss": 0.45178690997821974,
+      "auroc": 0.8696663156660938,
+      "ap": 0.8775031804553318,
+      "threshold_95_sens": 0.2687918543815613,
+      "specificity_at_95_sens": 0.5138316656856975,
+      "sensitivity": 0.951154052603328
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.855296831414062,
+    "test_metrics": {
+      "loss": 0.46000633173421746,
+      "auroc": 0.8591158288127362,
+      "ap": 0.854714184585252,
+      "threshold_95_sens": 0.23092079162597656,
+      "specificity_at_95_sens": 0.4994131455399061,
+      "sensitivity": 0.9503214494447692
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8573380248992488,
+    "test_metrics": {
+      "loss": 0.4589604488834144,
+      "auroc": 0.8629228467343222,
+      "ap": 0.8682767167610644,
+      "threshold_95_sens": 0.31650418043136597,
+      "specificity_at_95_sens": 0.5181498829039812,
+      "sensitivity": 0.95
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8460082987945794,
+    "test_metrics": {
+      "loss": 0.459124734329286,
+      "auroc": 0.8609616709997476,
+      "ap": 0.8539499967330103,
+      "threshold_95_sens": 0.2518593370914459,
+      "specificity_at_95_sens": 0.5198830409356725,
+      "sensitivity": 0.9504084014002334
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8501496857052412,
+    "test_metrics": {
+      "loss": 0.4650352642656351,
+      "auroc": 0.8568206650586514,
+      "ap": 0.8520506052192878,
+      "threshold_95_sens": 0.253743052482605,
+      "specificity_at_95_sens": 0.48245614035087714,
+      "sensitivity": 0.9500587544065805
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8607398136918432,
+    "test_metrics": {
+      "loss": 0.4484102671264196,
+      "auroc": 0.8729292624849261,
+      "ap": 0.8812244790934367,
+      "threshold_95_sens": 0.2967449724674225,
+      "specificity_at_95_sens": 0.5344320188346086,
+      "sensitivity": 0.9506172839506173
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.8519766111150848,
+    "test_metrics": {
+      "loss": 0.45933037652889075,
+      "auroc": 0.8587843297854535,
+      "ap": 0.855854777367403,
+      "threshold_95_sens": 0.21824143826961517,
+      "specificity_at_95_sens": 0.5164319248826291,
+      "sensitivity": 0.9503214494447692
+    }
+  }
+]

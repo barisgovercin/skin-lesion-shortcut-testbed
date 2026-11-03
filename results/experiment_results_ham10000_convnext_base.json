@@ -1,0 +1,142 @@
+[
+  {
+    "mode": "vision",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9031525974025976,
+    "test_metrics": {
+      "loss": 0.6505046731461274,
+      "auroc": 0.8969519331069451,
+      "ap": 0.6702196378311815,
+      "threshold_95_sens": 0.2037411630153656,
+      "specificity_at_95_sens": 0.6168395363026236,
+      "sensitivity": 0.9503722084367245
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9127688193565949,
+    "test_metrics": {
+      "loss": 0.6143729111121415,
+      "auroc": 0.9030387978298389,
+      "ap": 0.6848094311952542,
+      "threshold_95_sens": 0.3001013696193695,
+      "specificity_at_95_sens": 0.6863468634686347,
+      "sensitivity": 0.9509043927648578
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9117477084102548,
+    "test_metrics": {
+      "loss": 0.6174907018243527,
+      "auroc": 0.9114751320795402,
+      "ap": 0.7429783477964652,
+      "threshold_95_sens": 0.2007695883512497,
+      "specificity_at_95_sens": 0.6371517027863778,
+      "sensitivity": 0.9502487562189055
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9071729560488713,
+    "test_metrics": {
+      "loss": 0.6125149556072433,
+      "auroc": 0.9077720986169574,
+      "ap": 0.7081785129466648,
+      "threshold_95_sens": 0.17297104001045227,
+      "specificity_at_95_sens": 0.6181599518941672,
+      "sensitivity": 0.952020202020202
+    }
+  },
+  {
+    "mode": "vision",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9127310693127002,
+    "test_metrics": {
+      "loss": 0.5892996834516525,
+      "auroc": 0.9122571136663621,
+      "ap": 0.7015120025776584,
+      "threshold_95_sens": 0.34843015670776367,
+      "specificity_at_95_sens": 0.6710199004975124,
+      "sensitivity": 0.9591836734693877
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 42,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9081217532467533,
+    "test_metrics": {
+      "loss": 0.6338085841011697,
+      "auroc": 0.8995211326884849,
+      "ap": 0.6701216003254662,
+      "threshold_95_sens": 0.2208932340145111,
+      "specificity_at_95_sens": 0.6223306894447834,
+      "sensitivity": 0.9503722084367245
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 123,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9082963698377876,
+    "test_metrics": {
+      "loss": 0.6215371066399966,
+      "auroc": 0.902465109922417,
+      "ap": 0.6850849725821065,
+      "threshold_95_sens": 0.251335084438324,
+      "specificity_at_95_sens": 0.6531365313653137,
+      "sensitivity": 0.9534883720930233
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 456,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9101231277992712,
+    "test_metrics": {
+      "loss": 0.6177733026049665,
+      "auroc": 0.9118509619087225,
+      "ap": 0.7408147416834495,
+      "threshold_95_sens": 0.18055321276187897,
+      "specificity_at_95_sens": 0.6421052631578947,
+      "sensitivity": 0.9502487562189055
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 789,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9017742100018049,
+    "test_metrics": {
+      "loss": 0.6054535439258759,
+      "auroc": 0.9064289922678378,
+      "ap": 0.6943421307438626,
+      "threshold_95_sens": 0.27308300137519836,
+      "specificity_at_95_sens": 0.6205652435357787,
+      "sensitivity": 0.952020202020202
+    }
+  },
+  {
+    "mode": "vision_metadata",
+    "seed": 1024,
+    "backbone": "convnext_base",
+    "best_val_auroc": 0.9124380847550909,
+    "test_metrics": {
+      "loss": 0.5873723577260971,
+      "auroc": 0.914421832165702,
+      "ap": 0.7068361939647478,
+      "threshold_95_sens": 0.4302785098552704,
+      "specificity_at_95_sens": 0.6958955223880596,
+      "sensitivity": 0.951530612244898
+    }
+  }
+]
