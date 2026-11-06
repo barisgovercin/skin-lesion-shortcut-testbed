@@ -13,7 +13,8 @@ Structure follows Mitchell et al., "Model Cards for Model Reporting" (FAT* 2019)
   linear layer with a sigmoid output, P(malignant). About 198M parameters.
 - **Files:** `shortcut_ham10000_naive_p1.0_seed42.pt` and
   `shortcut_ham10000_counterfactual_aug_p1.0_seed42.pt` (about 0.8 GB each, weights
-  only, PyTorch `state_dict` plus run metadata). Archived on Zenodo (link in README).
+  only, PyTorch `state_dict` plus run metadata). Archived on Zenodo:
+  doi:[10.5281/zenodo.24012260](https://doi.org/10.5281/zenodo.24012260).
   SHA-256 checksums:
   `8527a76a1889071e8f15033defeae817f987e4f7716b4726e3d2ab2246c317d6` (counterfactual_aug),
   `082056fdf61f7ef0210a0dfc34a676024114b5fcb6748879116ea28c22a12594` (naive).
@@ -27,7 +28,7 @@ Structure follows Mitchell et al., "Model Cards for Model Reporting" (FAT* 2019)
   CUDA 13.0); not the exact weights behind the article's tables, which were trained
   on an RTX 5080 and not kept. See `results/checkpoint_eval/` for the comparison.
 - **Licence:** code MIT. The weights are derived from HAM10000 (CC BY-NC 4.0) and are
-  released for non-commercial research use only.
+  released under CC BY-NC 4.0, for non-commercial research use only.
 
 ## Intended use
 

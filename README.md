@@ -270,11 +270,14 @@ from 0.709 to 0.740, while its SRS (0.998) did not change.
 ## 9. Released models
 
 Two retrained HAM10000 models (seed 42, `p = 1.0`): `naive` and `counterfactual_aug`,
-about 0.8 GB each, archived on Zenodo (DOI added at release). See `MODEL_CARD.md` for
-intended use, training data and limitations. **Research use only, not for clinical
-use.**
+about 0.8 GB each, archived on Zenodo under CC BY-NC 4.0:
+doi:[10.5281/zenodo.24012260](https://doi.org/10.5281/zenodo.24012260). See
+`MODEL_CARD.md` for intended use, training data, limitations and SHA-256 checksums.
+**Research use only, not for clinical use.**
 
 ```bash
+curl -L -o shortcut_ham10000_counterfactual_aug_p1.0_seed42.pt \
+    "https://zenodo.org/records/24012260/files/shortcut_ham10000_counterfactual_aug_p1.0_seed42.pt?download=1"
 python scripts/evaluate_checkpoint.py \
     --checkpoint shortcut_ham10000_counterfactual_aug_p1.0_seed42.pt --data-dir data/raw/ham10000
 ```
@@ -327,8 +330,9 @@ repository") holds the metadata, and the archived release is on Zenodo.
 
 - **Code:** MIT licence (`LICENSE`).
 - **Datasets:** under their own licences (Section 6); not redistributed here.
-- **Released model weights:** trained on HAM10000 (CC BY-NC 4.0); non-commercial
-  research use only.
+- **Released model weights:** trained on HAM10000 (CC BY-NC 4.0) and released under
+  CC BY-NC 4.0 (doi:[10.5281/zenodo.24012260](https://doi.org/10.5281/zenodo.24012260));
+  non-commercial research use only.
 
 Questions about the code: please open a GitHub issue. Correspondence about the article:
 the corresponding author listed in the paper.
