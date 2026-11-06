@@ -23,6 +23,7 @@ authors:
   - given-names: Haider
     family-names: Raza
     affiliation: "School of Computer Science and Electronic Engineering, University of Essex"
+    orcid: "https://orcid.org/0000-0002-3955-0144"
 preferred-citation:
   type: article
   title: "Detecting and mitigating language shortcuts in multimodal AI for skin cancer diagnosis"
