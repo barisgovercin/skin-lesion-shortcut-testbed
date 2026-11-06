@@ -1,5 +1,7 @@
 # Detecting and mitigating language shortcuts in multimodal skin cancer AI
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24013455.svg)](https://doi.org/10.5281/zenodo.24013455)
+
 Code, data splits, results and released models for the article
 
 > Govercin M.B., Wishart G.C., Raza H. *Detecting and mitigating language shortcuts in
@@ -326,7 +328,11 @@ tests/               offline unit tests, plus real-data split tests when data is
 ## 12. Citation and licences
 
 Please cite the article and this software; `CITATION.cff` (GitHub: "Cite this
-repository") holds the metadata, and the archived release is on Zenodo.
+repository") holds the metadata. Each release is archived on Zenodo: version 1.0.0,
+which accompanies the article, is
+doi:[10.5281/zenodo.24013456](https://doi.org/10.5281/zenodo.24013456), and
+doi:[10.5281/zenodo.24013455](https://doi.org/10.5281/zenodo.24013455) always resolves
+to the latest version.
 
 - **Code:** MIT licence (`LICENSE`).
 - **Datasets:** under their own licences (Section 6); not redistributed here.
