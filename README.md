@@ -334,5 +334,9 @@ repository") holds the metadata, and the archived release is on Zenodo.
   CC BY-NC 4.0 (doi:[10.5281/zenodo.24012260](https://doi.org/10.5281/zenodo.24012260));
   non-commercial research use only.
 
+**AI assistance.** Parts of the code and documentation were developed with the
+assistance of Claude Code (Anthropic); the authors reviewed and tested all of it and are
+responsible for it. Commits made with this assistance carry an `Assisted-by:` trailer.
+
 Questions about the code: please open a GitHub issue. Correspondence about the article:
 the corresponding author listed in the paper.
