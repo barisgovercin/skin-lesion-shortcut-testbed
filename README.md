@@ -254,7 +254,7 @@ an experiment overwrites the shipped file of the same name (restore it with
 `--seeds 42` runs a single seed; `--keep-checkpoints DIR` keeps the trained weights.
 A training-budget control, `ffilt_only_2x` (filtered notes, every training row twice per
 epoch, the same number of steps as counterfactual augmentation), can be added to
-`shortcut.methods` in a config.
+`shortcut.methods` in a config; its HAM10000 results are in `results/training_budget_control/`.
 
 **Compute.** One seed of the HAM10000 bake-off takes about 45 min for naive or
 `ffilt_only` and about 85 min for counterfactual augmentation on a Tesla T4; an epoch of

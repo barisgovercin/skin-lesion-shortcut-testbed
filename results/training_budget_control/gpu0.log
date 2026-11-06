@@ -1,0 +1,85 @@
+Device: cuda | dataset ham10000 | mode bakeoff
+Train: 5988 (19.5% malignant)
+Val:   1985 (19.4% malignant)
+Test:  2042 (19.7% malignant)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 17496.05it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: emilyalsentzer/Bio_ClinicalBERT
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.decoder.weight             | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Epoch 1/5 (961s) | Train Loss: 0.7435 AUROC: 0.8589 | Val Loss: 0.6247 AUROC: 0.9080 AP: 0.6944 Spec@95Sens: 0.6644
+  -> New best model saved (AUROC: 0.9080)
+Epoch 2/5 (943s) | Train Loss: 0.5673 AUROC: 0.9203 | Val Loss: 0.5924 AUROC: 0.9175 AP: 0.7139 Spec@95Sens: 0.6731
+  -> New best model saved (AUROC: 0.9175)
+Epoch 3/5 (947s) | Train Loss: 0.4918 AUROC: 0.9408 | Val Loss: 0.6898 AUROC: 0.9211 AP: 0.7475 Spec@95Sens: 0.6675
+  -> New best model saved (AUROC: 0.9211)
+Epoch 4/5 (946s) | Train Loss: 0.4437 AUROC: 0.9521 | Val Loss: 0.7023 AUROC: 0.9184 AP: 0.7366 Spec@95Sens: 0.6594
+Epoch 5/5 (945s) | Train Loss: 0.4140 AUROC: 0.9585 | Val Loss: 0.6505 AUROC: 0.9197 AP: 0.7405 Spec@95Sens: 0.6756
+Train: 6023 (19.5% malignant)
+Val:   1979 (19.9% malignant)
+Test:  2013 (19.2% malignant)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11638.98it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: emilyalsentzer/Bio_ClinicalBERT
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.decoder.weight             | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Epoch 1/5 (954s) | Train Loss: 0.7164 AUROC: 0.8722 | Val Loss: 0.5898 AUROC: 0.9156 AP: 0.7103 Spec@95Sens: 0.6826
+  -> New best model saved (AUROC: 0.9156)
+Epoch 2/5 (947s) | Train Loss: 0.5409 AUROC: 0.9290 | Val Loss: 0.5919 AUROC: 0.9177 AP: 0.7202 Spec@95Sens: 0.6738
+  -> New best model saved (AUROC: 0.9177)
+Epoch 3/5 (949s) | Train Loss: 0.4687 AUROC: 0.9475 | Val Loss: 0.6077 AUROC: 0.9188 AP: 0.7283 Spec@95Sens: 0.7110
+  -> New best model saved (AUROC: 0.9188)
+Epoch 4/5 (950s) | Train Loss: 0.4173 AUROC: 0.9583 | Val Loss: 0.6169 AUROC: 0.9209 AP: 0.7363 Spec@95Sens: 0.6984
+  -> New best model saved (AUROC: 0.9209)
+Epoch 5/5 (949s) | Train Loss: 0.3909 AUROC: 0.9635 | Val Loss: 0.6407 AUROC: 0.9207 AP: 0.7386 Spec@95Sens: 0.6940
+Train: 5995 (19.5% malignant)
+Val:   2003 (19.2% malignant)
+Test:  2017 (19.9% malignant)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7145.14it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: emilyalsentzer/Bio_ClinicalBERT
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.decoder.weight             | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Epoch 1/5 (951s) | Train Loss: 0.7395 AUROC: 0.8613 | Val Loss: 0.5961 AUROC: 0.9088 AP: 0.6999 Spec@95Sens: 0.7002
+  -> New best model saved (AUROC: 0.9088)
+Epoch 2/5 (946s) | Train Loss: 0.5577 AUROC: 0.9231 | Val Loss: 0.5548 AUROC: 0.9252 AP: 0.7450 Spec@95Sens: 0.7151
+  -> New best model saved (AUROC: 0.9252)
+Epoch 3/5 (945s) | Train Loss: 0.4978 AUROC: 0.9394 | Val Loss: 0.5513 AUROC: 0.9281 AP: 0.7541 Spec@95Sens: 0.7089
+  -> New best model saved (AUROC: 0.9281)
+Epoch 4/5 (948s) | Train Loss: 0.4400 AUROC: 0.9525 | Val Loss: 0.5589 AUROC: 0.9289 AP: 0.7510 Spec@95Sens: 0.6947
+  -> New best model saved (AUROC: 0.9289)
+Epoch 5/5 (959s) | Train Loss: 0.4147 AUROC: 0.9577 | Val Loss: 0.5610 AUROC: 0.9306 AP: 0.7583 Spec@95Sens: 0.7151
+  -> New best model saved (AUROC: 0.9306)
+[bakeoff] p=1.0 method=ffilt_only_2x | AUROC 0.9229+/-0.0256 honestAUROC 0.9234 SRS 0.0052+/-0.0010 FFiltGap -0.0005+/-0.0021
+Saved results/shortcut_ham10000_bakeoff.json
