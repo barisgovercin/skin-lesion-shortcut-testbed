@@ -20,13 +20,15 @@ manifests rebuilt on Kaggle are byte-identical to the shipped ones.
 - **Near-identical images**: cosine similarity of ImageNet ConvNeXt-Base
   embeddings, following the embedding-plus-visual-review approach of Abhishek
   et al. (Sci. Data 2025) for HAM10000. Candidate pairs that fall in different
-  splits are in `<dataset>_cross_split_candidates.csv` (cosine >= 0.95) and the
-  40 most similar ones are shown in `<dataset>_review.jpg`.
+  splits are in `<dataset>_cross_split_candidates.csv` (cosine >= 0.95, image ids
+  only). `scripts/check_splits.py` also draws the 40 most similar pairs as a review
+  sheet; the sheets show dataset photographs, so they are not included here (the
+  images are not redistributed) and are regenerated from the official downloads.
 
 ### Visual review
 
 The most similar cross-split pairs were inspected (all 40 per dataset at reduced
-size, the top 6 at full size in `<dataset>_review_top6.jpg`):
+size, the top 6 at full size):
 
 | Dataset | Top pairs (cosine) | Finding |
 |---|---|---|

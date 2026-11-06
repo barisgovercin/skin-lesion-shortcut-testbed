@@ -72,3 +72,7 @@ data/llm_notes_cache/mock_*
 scripts/download_data.py
 scripts/setup_kaggle.py
 .gstack/
+
+# Duplicate-check review sheets show dataset photographs: not redistributed
+results/split_checks/*_review*.png
+results/split_checks/*_review*.jpg
