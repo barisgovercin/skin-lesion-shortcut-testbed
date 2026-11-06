@@ -14,6 +14,9 @@ Structure follows Mitchell et al., "Model Cards for Model Reporting" (FAT* 2019)
 - **Files:** `shortcut_ham10000_naive_p1.0_seed42.pt` and
   `shortcut_ham10000_counterfactual_aug_p1.0_seed42.pt` (about 0.8 GB each, weights
   only, PyTorch `state_dict` plus run metadata). Archived on Zenodo (link in README).
+  SHA-256 checksums:
+  `8527a76a1889071e8f15033defeae817f987e4f7716b4726e3d2ab2246c317d6` (counterfactual_aug),
+  `082056fdf61f7ef0210a0dfc34a676024114b5fcb6748879116ea28c22a12594` (naive).
 - **Training:** HAM10000, lesion-level 60/20/20 split for seed 42 (`splits/`),
   synthetic notes at the DFilt level with leakage p = 1.0, AdamW (learning rate 1e-5,
   weight decay 0.01, cosine schedule), 5 epochs, batch size 16, class-weighted
