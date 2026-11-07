@@ -1,6 +1,6 @@
 # Manuscript number check
 
-140 of 140 reported numbers and statements match the values recomputed from results/.
+152 of 152 reported numbers and statements match the values recomputed from results/.
 
 ## All checks
 
@@ -116,6 +116,18 @@
 | OK | Results · cf vs consistency, p · ISIC-DICM-17K | 0.43 | 0.4287 |
 | OK | Results · cf vs consistency, p · HAM10000 | 0.04 | 0.0425 |
 | OK | Results · cf vs consistency, mean difference · HAM10000 | 0.003 | 0.0034 |
+| OK | Control · budget-matched filtering honest AUROC | 0.926 | 0.9260 |
+| OK | Control · counterfactual_aug honest AUROC | 0.928 | 0.9276 |
+| OK | Control · cf minus budget-matched filtering, honest AUROC | +0.002 | 0.0015 |
+| OK | Control · 95% CI low | -0.002 | -0.0020 |
+| OK | Control · 95% CI high | +0.005 | 0.0051 |
+| OK | Control · p | 0.30 | 0.2968 |
+| OK | Control · cf matches budget-matched filtering (not significant) | p>=0.05 | 0.2968 |
+| OK | Control · counterfactual_aug SRS | 0.004 | 0.0036 |
+| OK | Control · budget-matched filtering SRS | 0.006 | 0.0055 |
+| OK | Control · cf keeps a lower SRS | <0 | -0.0020 |
+| OK | Control · lower SRS, p | 0.015 | 0.0147 |
+| OK | Control · lower SRS is significant | p<0.05 | 0.0147 |
 | OK | LLM · honest AUROC holds near 0.91 before collapsing | 0.90-0.92 | 0.9169, 0.9162, 0.9140, 0.9084, 0.9033 |
 | OK | LLM · Spearman rho for SRS vs p | 0.99 | 0.9866 |
 | OK | LLM · Spearman p<0.001 for SRS vs p | <0.001 | 1.413e-23 |

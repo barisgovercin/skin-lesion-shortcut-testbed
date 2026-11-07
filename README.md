@@ -137,7 +137,7 @@ Five levels, from no download at all to full retraining:
 | 4. Released models | The released models give the reported metrics on the real test images | `python scripts/evaluate_checkpoint.py --checkpoint <file> --data-dir data/raw/ham10000` | HAM10000 images + checkpoints | minutes (GPU) |
 | 5. Full retraining | The experiments reproduce from scratch | see [Training and evaluation](#8-training-and-evaluation) | images + GPU | hours |
 
-- `reproduce_tables.py` recomputes the four manuscript tables and checks 140 reported
+- `reproduce_tables.py` recomputes the four manuscript tables and checks 152 reported
   numbers and statements against `results/` (`results/reports/manuscript_check.md`); it
   exits with code 1 on any mismatch.
 - `make_splits.py --verify` rebuilds the splits from your own download and compares them

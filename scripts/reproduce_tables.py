@@ -94,6 +94,16 @@ def compute(results_dir):
     _shortcut_facts("llm", _load(results_dir, "shortcut_ham10000_llm_dose.json"),
                     _load(results_dir, "shortcut_ham10000_llm_bakeoff.json"), f)
 
+    # Training-budget control (HAM10000): filtering with every example twice per epoch.
+    ctrl = _load(results_dir, "training_budget_control/summary.json")["rows"]
+    bake = _load(results_dir, "shortcut_ham10000_bakeoff.json")
+    for metric, col in (("honest", "auroc_ffilt"), ("srs", "srs")):
+        f[f"budget.ffilt_only_2x.{metric}"] = float(by_seed(ctrl, "ffilt_only_2x", col).mean())
+        t = paired_test(by_seed(bake, "counterfactual_aug", col), by_seed(ctrl, "ffilt_only_2x", col))
+        key = f"budget.paired.{metric}"
+        f[f"{key}.delta"], f[f"{key}.p"] = t["mean_diff"], t["t_p"]
+        f[f"{key}.ci_lo"], f[f"{key}.ci_hi"] = (float(x) for x in t["ci"])
+
     clinical = _load(results_dir, "clinical_stats.json")
     for ds in DATASETS:
         nb = clinical[ds]["net_benefit"]
@@ -248,6 +258,24 @@ def _claims():
              "ham10000.paired.honest.consistency.p"),
           _c("Results · cf vs consistency, mean difference · HAM10000", "round", "0.003",
              "ham10000.paired.honest.consistency.delta")]
+    # Training-budget control (Results, HAM10000).
+    c += [_c("Control · budget-matched filtering honest AUROC", "round", "0.926",
+             "budget.ffilt_only_2x.honest"),
+          _c("Control · counterfactual_aug honest AUROC", "round", "0.928",
+             "ham10000.bake.counterfactual_aug.honest"),
+          _c("Control · cf minus budget-matched filtering, honest AUROC", "round", "+0.002",
+             "budget.paired.honest.delta"),
+          _c("Control · 95% CI low", "round", "-0.002", "budget.paired.honest.ci_lo"),
+          _c("Control · 95% CI high", "round", "+0.005", "budget.paired.honest.ci_hi"),
+          _c("Control · p", "round", "0.30", "budget.paired.honest.p"),
+          _c("Control · cf matches budget-matched filtering (not significant)", "not_significant",
+             "p>=0.05", "budget.paired.honest.p"),
+          _c("Control · counterfactual_aug SRS", "round", "0.004",
+             "ham10000.bake.counterfactual_aug.srs"),
+          _c("Control · budget-matched filtering SRS", "round", "0.006", "budget.ffilt_only_2x.srs"),
+          _c("Control · cf keeps a lower SRS", "lt", "<0", "budget.paired.srs.delta"),
+          _c("Control · lower SRS, p", "round", "0.015", "budget.paired.srs.p"),
+          _c("Control · lower SRS is significant", "significant", "p<0.05", "budget.paired.srs.p")]
     # LLM-generated notes (HAM10000).
     c += [_c("LLM · honest AUROC holds near 0.91 before collapsing", "range", "0.90-0.92",
              "llm.dose.honest_before_collapse"),
