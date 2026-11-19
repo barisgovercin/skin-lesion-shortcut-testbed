@@ -1,0 +1,662 @@
+{
+  "holm_bakeoff": [
+    {
+      "dataset": "HAM10000",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.00336820887122824,
+      "p": 0.04249394902782596,
+      "p_holm_dataset": 0.04249394902782596,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": 0.010019785494136202,
+      "p": 0.00584632167529498,
+      "p_holm_dataset": 0.029231608376474903,
+      "p_holm_all": 0.11108011183060462
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": 0.029734670307037313,
+      "p": 0.016936736906594904,
+      "p_holm_dataset": 0.03531008108034356,
+      "p_holm_all": 0.23711431669232866
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": 0.21618428008249396,
+      "p": 0.0007849579821585565,
+      "p_holm_dataset": 0.005494705875109895,
+      "p_holm_all": 0.01962394955396391
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.0012144079508951207,
+      "p": 0.0035648957599505857,
+      "p_holm_dataset": 0.021389374559703515,
+      "p_holm_all": 0.0748628109589623
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": -0.0030923058776908944,
+      "p": 0.00882752027008589,
+      "p_holm_dataset": 0.03531008108034356,
+      "p_holm_all": 0.1500678445914601
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": -0.09805587535796892,
+      "p": 0.009503144562870313,
+      "p_holm_dataset": 0.03531008108034356,
+      "p_holm_all": 0.152050313005925
+    },
+    {
+      "dataset": "HAM10000",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": -0.9942516010076847,
+      "p": 1.4686500111719097e-13,
+      "p_holm_dataset": 1.1749200089375278e-12,
+      "p_holm_all": 4.405950033515729e-12
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.0009743697880874258,
+      "p": 0.17578704834421607,
+      "p_holm_dataset": 0.35157409668843215,
+      "p_holm_all": 0.7031481933768643
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": 0.002376775101259998,
+      "p": 0.0008132948579478302,
+      "p_holm_dataset": 0.0056930640056348115,
+      "p_holm_all": 0.01962394955396391
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": 0.01607186507903451,
+      "p": 0.05145758640259363,
+      "p_holm_dataset": 0.17457467972624263,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": 0.09066169122546401,
+      "p": 0.0067290880087167,
+      "p_holm_dataset": 0.033645440043583504,
+      "p_holm_all": 0.12112358415690061
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.00016678051601974337,
+      "p": 0.23059070822644967,
+      "p_holm_dataset": 0.35157409668843215,
+      "p_holm_all": 0.7031481933768643
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": -0.0011634434640038734,
+      "p": 0.003741995689242853,
+      "p_holm_dataset": 0.022451974135457117,
+      "p_holm_all": 0.0748628109589623
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": -0.12340448405482529,
+      "p": 0.04364366993156066,
+      "p_holm_dataset": 0.17457467972624263,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "ISIC 2020",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": -0.9980802726707303,
+      "p": 5.585201163407865e-15,
+      "p_holm_dataset": 4.468160930726292e-14,
+      "p_holm_all": 1.7872643722905167e-13
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.0015777524772819795,
+      "p": 0.42873548656278404,
+      "p_holm_dataset": 0.8574709731255681,
+      "p_holm_all": 0.8574709731255681
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": 0.008823940853399992,
+      "p": 0.036883564071850145,
+      "p_holm_dataset": 0.14753425628740058,
+      "p_holm_all": 0.44260276886220173
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": 0.10434037078591263,
+      "p": 0.043851297679751405,
+      "p_holm_dataset": 0.14753425628740058,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": 0.20904407710053188,
+      "p": 0.0004605667786504888,
+      "p_holm_dataset": 0.0027634006719029327,
+      "p_holm_all": 0.011974736244912708
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 6.277662872605197e-05,
+      "p": 0.9161281293087533,
+      "p_holm_dataset": 0.9161281293087533,
+      "p_holm_all": 0.9161281293087533
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": -0.003116182005758806,
+      "p": 0.012071730354787534,
+      "p_holm_dataset": 0.06035865177393767,
+      "p_holm_all": 0.181075955321813
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": -0.6761598417188139,
+      "p": 1.2578876052708616e-05,
+      "p_holm_dataset": 8.80521323689603e-05,
+      "p_holm_all": 0.0003522085294758412
+    },
+    {
+      "dataset": "ISIC-DICM-17K",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": -0.9954913289619303,
+      "p": 7.407326494607567e-14,
+      "p_holm_dataset": 5.925861195686054e-13,
+      "p_holm_all": 2.2962712133283456e-12
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.003211845947312231,
+      "p": 0.04770332936265405,
+      "p_holm_dataset": 0.14310998808796216,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": 0.010623779015530022,
+      "p": 0.002686139814763921,
+      "p_holm_dataset": 0.013430699073819604,
+      "p_holm_all": 0.05909507592480626
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": 0.010398342850062959,
+      "p": 0.01900980165392822,
+      "p_holm_dataset": 0.07603920661571288,
+      "p_holm_all": 0.24712742150106687
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "auroc_ffilt",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": 0.27228659030161284,
+      "p": 0.00015899695760422344,
+      "p_holm_dataset": 0.0011129787032295641,
+      "p_holm_all": 0.0042929178553140325
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs consistency",
+      "mean_diff": 0.0016917371883717392,
+      "p": 0.07095352271665796,
+      "p_holm_dataset": 0.14310998808796216,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs ffilt_only",
+      "mean_diff": 0.001618144198906643,
+      "p": 0.07023754602082755,
+      "p_holm_dataset": 0.14310998808796216,
+      "p_holm_all": 0.46743343930608555
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs adversarial",
+      "mean_diff": -0.07636540371239489,
+      "p": 0.0021927068471217425,
+      "p_holm_dataset": 0.013156241082730455,
+      "p_holm_all": 0.05043225748380008
+    },
+    {
+      "dataset": "HAM10000, LLM notes",
+      "metric": "srs",
+      "comparison": "counterfactual_aug vs naive",
+      "mean_diff": -0.991636020439441,
+      "p": 1.7391356748882998e-12,
+      "p_holm_dataset": 1.3913085399106399e-11,
+      "p_holm_all": 5.043493457176069e-11
+    }
+  ],
+  "early_warning": {
+    "HAM10000": {
+      "srs": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.08634285186726104,
+            "change": 0.07107124293201325,
+            "share_of_full_change": 0.07233243745072641,
+            "p": 0.00010222514938402027,
+            "p_holm": 0.00010222514938402027
+          },
+          {
+            "level": 0.7,
+            "mean": 0.17443828051819768,
+            "change": 0.1591666715829499,
+            "share_of_full_change": 0.16199116325469767,
+            "p": 5.2455417129446235e-06,
+            "p_holm": 1.0491083425889247e-05
+          },
+          {
+            "level": 0.8,
+            "mean": 0.2973203002488155,
+            "change": 0.28204869131356775,
+            "share_of_full_change": 0.28705378548133365,
+            "p": 1.530052404658096e-06,
+            "p_holm": 4.590157213974288e-06
+          },
+          {
+            "level": 0.9,
+            "mean": 0.46693642430492616,
+            "change": 0.4516648153696784,
+            "share_of_full_change": 0.459679831935306,
+            "p": 4.31967208849392e-08,
+            "p_holm": 1.727868835397568e-07
+          },
+          {
+            "level": 1.0,
+            "mean": 0.9978355240587732,
+            "change": 0.9825639151235254,
+            "share_of_full_change": 1.0,
+            "p": 4.356805667746034e-11,
+            "p_holm": 2.1784028338730171e-10
+          }
+        ],
+        "first_significant_level": 0.6
+      },
+      "auroc_ffilt": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.9160916002417849,
+            "change": -0.0013394387537439822,
+            "share_of_full_change": 0.006501063834754814,
+            "p": 0.033742088546506864,
+            "p_holm": 0.033742088546506864
+          },
+          {
+            "level": 0.7,
+            "mean": 0.9139263639790249,
+            "change": -0.0035046750165039775,
+            "share_of_full_change": 0.017010196202459325,
+            "p": 0.003234292442006941,
+            "p_holm": 0.006468584884013882
+          },
+          {
+            "level": 0.8,
+            "mean": 0.9114031781214761,
+            "change": -0.006027860874052826,
+            "share_of_full_change": 0.029256663076009964,
+            "p": 0.001235999991893879,
+            "p_holm": 0.003707999975681637
+          },
+          {
+            "level": 0.9,
+            "mean": 0.9027349548411678,
+            "change": -0.014696084154361078,
+            "share_of_full_change": 0.0713285179642424,
+            "p": 0.0005836111195154156,
+            "p_holm": 0.0023344444780616625
+          },
+          {
+            "level": 1.0,
+            "mean": 0.7113972593265282,
+            "change": -0.20603377966900072,
+            "share_of_full_change": 1.0,
+            "p": 0.0003743694025601051,
+            "p_holm": 0.0018718470128005254
+          }
+        ],
+        "first_significant_level": 0.6
+      }
+    },
+    "ISIC 2020": {
+      "srs": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.03963311292474961,
+            "change": 0.033885606193098564,
+            "share_of_full_change": 0.034113845976117024,
+            "p": 8.811297915310521e-06,
+            "p_holm": 2.6433893745931564e-05
+          },
+          {
+            "level": 0.7,
+            "mean": 0.08275346827232195,
+            "change": 0.07700596154067091,
+            "share_of_full_change": 0.07752464265420962,
+            "p": 1.0682149467605422e-05,
+            "p_holm": 2.6433893745931564e-05
+          },
+          {
+            "level": 0.8,
+            "mean": 0.14388893362249922,
+            "change": 0.13814142689084816,
+            "share_of_full_change": 0.13907189185345664,
+            "p": 2.6930087040062262e-06,
+            "p_holm": 1.0772034816024905e-05
+          },
+          {
+            "level": 0.9,
+            "mean": 0.2473281958814864,
+            "change": 0.24158068914983535,
+            "share_of_full_change": 0.24320787928356943,
+            "p": 1.1634023491481954e-05,
+            "p_holm": 2.6433893745931564e-05
+          },
+          {
+            "level": 1.0,
+            "mean": 0.9990569745888299,
+            "change": 0.9933094678571789,
+            "share_of_full_change": 1.0,
+            "p": 3.9992571719639685e-12,
+            "p_holm": 1.9996285859819844e-11
+          }
+        ],
+        "first_significant_level": 0.6
+      },
+      "auroc_ffilt": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.9851323499421026,
+            "change": -0.0001079878755602115,
+            "share_of_full_change": 0.0012204800828914456,
+            "p": 0.20997270575412844,
+            "p_holm": 0.20997270575412844
+          },
+          {
+            "level": 0.7,
+            "mean": 0.9847921723145026,
+            "change": -0.0004481655031602916,
+            "share_of_full_change": 0.0050651711371169405,
+            "p": 0.009564130668300098,
+            "p_holm": 0.028692392004900293
+          },
+          {
+            "level": 0.8,
+            "mean": 0.9844251957231199,
+            "change": -0.00081514209454292,
+            "share_of_full_change": 0.00921274435629893,
+            "p": 0.00257235863138104,
+            "p_holm": 0.0128617931569052
+          },
+          {
+            "level": 0.9,
+            "mean": 0.9827658362888858,
+            "change": -0.00247450152877704,
+            "share_of_full_change": 0.027966841789316296,
+            "p": 0.012982451078604806,
+            "p_holm": 0.028692392004900293
+          },
+          {
+            "level": 1.0,
+            "mean": 0.8967605034688901,
+            "change": -0.08847983434877271,
+            "share_of_full_change": 1.0,
+            "p": 0.0036491085076855063,
+            "p_holm": 0.014596434030742025
+          }
+        ],
+        "first_significant_level": 0.7
+      }
+    },
+    "ISIC-DICM-17K": {
+      "srs": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.11979398711625559,
+            "change": 0.10149232153106127,
+            "share_of_full_change": 0.10351035237899416,
+            "p": 8.77008680286417e-06,
+            "p_holm": 8.77008680286417e-06
+          },
+          {
+            "level": 0.7,
+            "mean": 0.245748514295084,
+            "change": 0.22744684870988968,
+            "share_of_full_change": 0.23196930666569876,
+            "p": 5.518881493930885e-07,
+            "p_holm": 2.207552597572354e-06
+          },
+          {
+            "level": 0.8,
+            "mean": 0.40005369950956576,
+            "change": 0.38175203392437146,
+            "share_of_full_change": 0.3893426316080073,
+            "p": 1.2216760673005046e-06,
+            "p_holm": 2.4433521346010092e-06
+          },
+          {
+            "level": 0.9,
+            "mean": 0.6115383715106126,
+            "change": 0.5932367059254183,
+            "share_of_full_change": 0.6050323763231754,
+            "p": 6.756498592898335e-07,
+            "p_holm": 2.207552597572354e-06
+          },
+          {
+            "level": 1.0,
+            "mean": 0.9988057330378484,
+            "change": 0.9805040674526541,
+            "share_of_full_change": 1.0,
+            "p": 1.6346907522724654e-10,
+            "p_holm": 8.173453761362327e-10
+          }
+        ],
+        "first_significant_level": 0.6
+      },
+      "auroc_ffilt": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.8786753870312962,
+            "change": -0.0005527873312376475,
+            "share_of_full_change": 0.002767311389438905,
+            "p": 0.0048821027905339666,
+            "p_holm": 0.011019767487805112
+          },
+          {
+            "level": 0.7,
+            "mean": 0.8766705204085078,
+            "change": -0.0025576539540260734,
+            "share_of_full_change": 0.012803884092953266,
+            "p": 0.00756392358823935,
+            "p_holm": 0.011019767487805112
+          },
+          {
+            "level": 0.8,
+            "mean": 0.8704584591358048,
+            "change": -0.008769715226729091,
+            "share_of_full_change": 0.04390211471512537,
+            "p": 0.0003280346887297316,
+            "p_holm": 0.0016401734436486582
+          },
+          {
+            "level": 0.9,
+            "mean": 0.8628674752081048,
+            "change": -0.01636069915442906,
+            "share_of_full_change": 0.08190337685175869,
+            "p": 0.0036732558292683704,
+            "p_holm": 0.011019767487805112
+          },
+          {
+            "level": 1.0,
+            "mean": 0.6794720741465298,
+            "change": -0.1997561002160041,
+            "share_of_full_change": 1.0,
+            "p": 0.00034727558118933643,
+            "p_holm": 0.0016401734436486582
+          }
+        ],
+        "first_significant_level": 0.6
+      }
+    },
+    "HAM10000, LLM notes": {
+      "srs": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.09428141302860056,
+            "change": 0.0787364169828526,
+            "share_of_full_change": 0.08015951727189494,
+            "p": 0.00025631531904984634,
+            "p_holm": 0.00025631531904984634
+          },
+          {
+            "level": 0.7,
+            "mean": 0.18050718414731656,
+            "change": 0.1649621881015686,
+            "share_of_full_change": 0.16794375300589395,
+            "p": 4.700157779602871e-05,
+            "p_holm": 9.400315559205741e-05
+          },
+          {
+            "level": 0.8,
+            "mean": 0.3045244542467457,
+            "change": 0.28897945820099774,
+            "share_of_full_change": 0.29420254005120056,
+            "p": 6.766029210440995e-06,
+            "p_holm": 2.0298087631322986e-05
+          },
+          {
+            "level": 0.9,
+            "mean": 0.4718906364956982,
+            "change": 0.45634564044995024,
+            "share_of_full_change": 0.46459373755308575,
+            "p": 4.646028840023217e-07,
+            "p_holm": 1.8584115360092869e-06
+          },
+          {
+            "level": 1.0,
+            "mean": 0.9977916420152428,
+            "change": 0.9822466459694948,
+            "share_of_full_change": 1.0,
+            "p": 7.642955308043558e-10,
+            "p_holm": 3.821477654021779e-09
+          }
+        ],
+        "first_significant_level": 0.6
+      },
+      "auroc_ffilt": {
+        "rows": [
+          {
+            "level": 0.6,
+            "mean": 0.9161907949192136,
+            "change": -0.0006824995141408996,
+            "share_of_full_change": 0.0026151976599295716,
+            "p": 0.10320552208804855,
+            "p_holm": 0.10320552208804855
+          },
+          {
+            "level": 0.7,
+            "mean": 0.9140479418323842,
+            "change": -0.0028253526009702767,
+            "share_of_full_change": 0.010826169627144956,
+            "p": 0.015459116437815786,
+            "p_holm": 0.03091823287563157
+          },
+          {
+            "level": 0.8,
+            "mean": 0.9084438174418137,
+            "change": -0.00842947699154084,
+            "share_of_full_change": 0.03230002079995138,
+            "p": 0.0027629380352885914,
+            "p_holm": 0.011051752141154366
+          },
+          {
+            "level": 0.9,
+            "mean": 0.9032640780388812,
+            "change": -0.013609216394473322,
+            "share_of_full_change": 0.052147716050907254,
+            "p": 0.0028031216016886785,
+            "p_holm": 0.011051752141154366
+          },
+          {
+            "level": 1.0,
+            "mean": 0.6558989426288031,
+            "change": -0.2609743518045514,
+            "share_of_full_change": 1.0,
+            "p": 7.759757126690938e-05,
+            "p_holm": 0.0003879878563345469
+          }
+        ],
+        "first_significant_level": 0.7
+      }
+    }
+  }
+}

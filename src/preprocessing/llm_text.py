@@ -198,6 +198,26 @@ def _generate_pool(level, malignant, row, provider, get_backend, pool_size):
     return pool or [""]
 
 
+def heldout_clause(clause):
+    """About one clause in three is held out from training (fixed by the clause text, so
+    the split does not depend on generation order, seed or dataset)."""
+    return int(hashlib.md5(clause.encode()).hexdigest(), 16) % 3 == 0
+
+
+def _pool_part(pool, part):
+    """part=None: whole pool; "train": the clauses used for training and validation
+    notes; "test": the held-out clauses, never seen in training."""
+    if part is None or pool == [""]:
+        return pool
+    if part not in ("train", "test"):
+        raise ValueError(f"pool part must be None, 'train' or 'test', not {part!r}")
+    keep = [c for c in pool if heldout_clause(c) == (part == "test")]
+    if not keep:
+        raise ValueError(f"the {part} part of a pool of {len(pool)} clauses is empty; "
+                         "a held-out split needs a larger pool")
+    return keep
+
+
 def _assign(pool, row, seed):
     if not pool:
         return ""
@@ -205,24 +225,27 @@ def _assign(pool, row, seed):
     return pool[h % len(pool)]
 
 
-def _clause(row, level, malignant, seed, provider, model, get_backend, pools, pool_size):
+def _clause(row, level, malignant, seed, provider, model, get_backend, pools, pool_size,
+            pool_part=None):
     if level == FFILT:
         return ""
     key = f"{provider}|{model}|{_pool_key(level, malignant, row)}"
     if key not in pools:
         pools[key] = _generate_pool(level, malignant, row, provider, get_backend, pool_size)
-    return _assign(pools[key], row, seed)
+    return _assign(_pool_part(pools[key], pool_part), row, seed)
 
 
-def _note(row, level, seed, malignant, provider, model, get_backend, pools, pool_size):
+def _note(row, level, seed, malignant, provider, model, get_backend, pools, pool_size,
+          pool_part=None):
     facts = _facts_text(row, seed)
-    clause = _clause(row, level, malignant, seed, provider, model, get_backend, pools, pool_size)
+    clause = _clause(row, level, malignant, seed, provider, model, get_backend, pools, pool_size,
+                     pool_part)
     return f"{facts} {clause}".strip() if clause else facts
 
 
 def add_llm_text_columns(df, level=ORIG, seed=0, leakage_p=1.0, pair=False,
                          provider="mock", model=DEFAULT_MODEL, col="text",
-                         cache_path=None, pool_size=DEFAULT_POOL_SIZE):
+                         cache_path=None, pool_size=DEFAULT_POOL_SIZE, pool_part=None):
     """LLM (or mock) analogue of ``synthetic_text.add_text_columns``.
 
     Adds ``col`` (diagnosis segments concordant with the true label with
@@ -230,6 +253,9 @@ def add_llm_text_columns(df, level=ORIG, seed=0, leakage_p=1.0, pair=False,
     ``text_flipped`` (true vs opposite impression, identical facts) for SRS and
     counterfactual augmentation. Clause pools are cached on disk, so the first
     call may hit the API and every later call (other seeds/splits/methods) is free.
+
+    pool_part="train" / "test" draws only from the training or the held-out
+    clauses of each pool (see heldout_clause), for the held-out wording test.
     """
     if level not in LEVELS:
         raise ValueError(f"Unknown level '{level}'. Options: {LEVELS}")
@@ -252,12 +278,11 @@ def add_llm_text_columns(df, level=ORIG, seed=0, leakage_p=1.0, pair=False,
         true_mal = _true_malignant(row)
         concordant = _concordance_u(row, seed) < leakage_p
         eff_mal = true_mal if concordant else (not true_mal)
-        notes.append(_note(row, level, seed, eff_mal, provider, model, get_backend, pools, pool_size))
+        args = (provider, model, get_backend, pools, pool_size, pool_part)
+        notes.append(_note(row, level, seed, eff_mal, *args))
         if pair:
-            concordant_notes.append(
-                _note(row, level, seed, true_mal, provider, model, get_backend, pools, pool_size))
-            flipped_notes.append(
-                _note(row, level, seed, not true_mal, provider, model, get_backend, pools, pool_size))
+            concordant_notes.append(_note(row, level, seed, true_mal, *args))
+            flipped_notes.append(_note(row, level, seed, not true_mal, *args))
 
     result[col] = notes
     if pair:
